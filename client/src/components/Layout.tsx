@@ -39,7 +39,7 @@ export default function Layout() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A1A2E] text-white font-[Montserrat]">
+    <div className="min-h-screen bg-[#1A1A2E] text-white font-['Space Grotesk']">
       <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
       
       <div className="flex pt-16">

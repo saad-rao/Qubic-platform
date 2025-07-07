@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useWallet } from "@/hooks/useWallet";
 import { Menu, Box } from "lucide-react";
+import logoImage from "@/assests/images/Qubic-Symbol-White.png"
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -24,10 +25,11 @@ export default function Header({ onMenuClick }: HeaderProps) {
         
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-[#00D4FF] to-[#7B2CBF] rounded-lg flex items-center justify-center">
-            <Box className="text-white text-lg" />
+          <div className="w-8 h-8  rounded-lg flex items-center justify-center">
+            {/* <Box className="text-white text-lg" /> */}
+            <img src={logoImage} alt="Logo img" />
           </div>
-          <h1 className="text-xl font-bold">Qubic Analytics</h1>
+          <h1 className="text-xl font-bold">Ambassador platform</h1>
         </div>
         
         {/* Wallet Connection */}
@@ -42,7 +44,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
           <Button
             onClick={isConnected ? disconnect : connect}
             disabled={isConnecting}
-            className="bg-gradient-to-r from-[#00D4FF] to-[#7B2CBF] px-6 py-2 font-semibold neon-glow hover:shadow-[0_0_30px_rgba(123,44,191,0.7)] transition-all duration-300"
+            className="bg-gradient-to-r from-[#B0F9FE] to-[#B0F9FE] text-[#16192B] text-[18px] px-6 py-2 font-semibold  transition-all duration-300 "
           >
             {isConnecting ? 'Connecting...' : isConnected ? 'Disconnect' : 'Connect Wallet'}
           </Button>

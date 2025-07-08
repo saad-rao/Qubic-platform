@@ -14,14 +14,14 @@ export default function Header({ onMenuClick }: HeaderProps) {
     <header className="bg-gray-900/50 backdrop-blur-md border-b border-[#00D4FF]/20 fixed w-full top-0 z-40">
       <div className="flex items-center justify-between p-4">
         {/* Mobile Menu Button */}
-        <Button
+        {/* <Button
           variant="ghost"
           size="icon"
           className="md:hidden text-[#00D4FF] hover:text-[#7B2CBF] hover:bg-transparent"
           onClick={onMenuClick}
         >
           <Menu className="h-6 w-6" />
-        </Button>
+        </Button> */}
         
         {/* Logo */}
         <div className="flex items-center space-x-3">

@@ -110,54 +110,62 @@ export default function VisitorView() {
           </CardContent>
         </Card>
       </div>
-      <section className="py-16 bg-card bg-gray-900/50 ">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-[#00D4FF]">Why Join the Program?</h2>
-            <p className="text-muted-foreground text-[#9A9B9C]">
-              Become part of the Qubic community and earn rewards for your contributions
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="qubic-stat-card">
-              <CardContent className="p-6 bg-[#131927] rounded-lg ">
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Community Building</h3>
-                <p className="text-muted-foreground">
-                  Connect with fellow ambassadors and grow the Qubic community through engaging content and events.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="qubic-stat-card">
-              <CardContent className="p-6 bg-[#131927] rounded-lg">
-                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Track Performance</h3>
-                <p className="text-muted-foreground">
-                  Monitor your impact with real-time analytics and see how your contributions drive engagement.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="qubic-stat-card">
-              <CardContent className="p-6 bg-[#131927] rounded-lgs">
-                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
-                  <Trophy className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Earn Rewards</h3>
-                <p className="text-muted-foreground">
-                  Complete tasks and climb the leaderboard to earn points and recognition in the community.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+      <section className="py-16 bg-card bg-gray-900/50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-[#00D4FF] animate-fade-in-up opacity-0 animate-delay-0">
+            Why Join the Program?
+          </h2>
+          <p className="text-muted-foreground text-[#9A9B9C] animate-fade-in-up opacity-0 animate-delay-400">
+            Become part of the Qubic community and earn rewards for your contributions
+          </p>
         </div>
-      </section>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="qubic-stat-card group animate-fade-in-up opacity-0 animate-delay-300 hover:scale-105 transition-all duration-300 ease-out transform hover:-translate-y-2 hover:shadow-xl">
+            <CardContent className="p-6 bg-[#131927] rounded-lg hover:bg-[#1a2332] transition-colors duration-300">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <Users className="h-6 w-6 text-primary-foreground transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-[#00D4FF] transition-colors duration-300">
+                Community Building
+              </h3>
+              <p className="text-muted-foreground group-hover:text-[#b0b1b2] transition-colors duration-300">
+                Connect with fellow ambassadors and grow the Qubic community through engaging content and events.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="qubic-stat-card group animate-fade-in-up opacity-0 animate-delay-400 hover:scale-105 transition-all duration-300 ease-out transform hover:-translate-y-2 hover:shadow-xl">
+            <CardContent className="p-6 bg-[#131927] rounded-lg hover:bg-[#1a2332] transition-colors duration-300">
+              <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <TrendingUp className="h-6 w-6 text-white transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-[#00D4FF] transition-colors duration-300">
+                Track Performance
+              </h3>
+              <p className="text-muted-foreground group-hover:text-[#b0b1b2] transition-colors duration-300">
+                Monitor your impact with real-time analytics and see how your contributions drive engagement.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="qubic-stat-card group animate-fade-in-up opacity-0 animate-delay-500 hover:scale-105 transition-all duration-300 ease-out transform hover:-translate-y-2 hover:shadow-xl">
+            <CardContent className="p-6 bg-[#131927] rounded-lg hover:bg-[#1a2332] transition-colors duration-300">
+              <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <Trophy className="h-6 w-6 text-white transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-[#00D4FF] transition-colors duration-300">
+                Earn Rewards
+              </h3>
+              <p className="text-muted-foreground group-hover:text-[#b0b1b2] transition-colors duration-300">
+                Complete tasks and climb the leaderboard to earn points and recognition in the community.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
       <Footer />
     </div>
   );

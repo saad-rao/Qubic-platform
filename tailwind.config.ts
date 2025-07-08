@@ -1,10 +1,30 @@
 import type { Config } from "tailwindcss";
 
 export default {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+
+
+
+      
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -79,12 +99,56 @@ export default {
             height: "0",
           },
         },
+'fade-in-up': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(30px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+
+        
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+      },
+
+      animationDelay: {
+        '0': '0s',
+        '200': '0.2s',
+        '300': '0.3s',
+        '400': '0.4s',
+        '500': '0.5s',
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"),
+
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.animate-delay-0': {
+          'animation-delay': '0s',
+        },
+        '.animate-delay-200': {
+          'animation-delay': '0.2s',
+        },
+        '.animate-delay-300': {
+          'animation-delay': '0.3s',
+        },
+        '.animate-delay-400': {
+          'animation-delay': '0.4s',
+        },
+        '.animate-delay-500': {
+          'animation-delay': '0.5s',
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 } satisfies Config;
+

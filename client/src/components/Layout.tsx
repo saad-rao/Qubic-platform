@@ -5,6 +5,7 @@ import DashboardStats from "./DashboardStats";
 import ContributionForm from "./ContributionForm";
 import Leaderboard from "./Leaderboard";
 import Analytics from "./Analytics";
+import VisitorView from "./VisitorsView";
 
 type Section = 'dashboard' | 'contributions' | 'leaderboard' | 'analytics';
 
@@ -24,25 +25,28 @@ export default function Layout() {
   }, []);
 
   const renderContent = () => {
-    switch (activeSection) {
-      case 'dashboard':
-        return <DashboardStats />;
-      case 'contributions':
-        return <ContributionForm />;
-      case 'leaderboard':
-        return <Leaderboard />;
-      case 'analytics':
-        return <Analytics />;
-      default:
-        return <DashboardStats />;
-    }
+    return <VisitorView />;
+    // switch (activeSection) {
+    //   case 'dashboard':
+    //     return <DashboardStats />;
+    //   case 'contributions':
+    //     return <ContributionForm />;
+    //   case 'leaderboard':
+    //     return <Leaderboard />;
+    //   case 'analytics':
+    //     return <Analytics />;
+    //   default:
+    //     return <DashboardStats />;
+    // }
   };
 
   return (
     <div className="min-h-screen bg-[#1A1A2E] text-white font-['Space Grotesk']">
       <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
-      
-      <div className="flex pt-16">
+      <main >
+          {renderContent()}
+        </main>
+      {/* <div className="flex pt-16">
         <Sidebar 
           activeSection={activeSection}
           onSectionChange={setActiveSection}
@@ -53,7 +57,7 @@ export default function Layout() {
         <main className="flex-1 p-6 space-y-6 md:ml-0 ml-0">
           {renderContent()}
         </main>
-      </div>
+      </div> */}
 
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (

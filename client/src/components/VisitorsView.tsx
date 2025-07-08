@@ -44,8 +44,13 @@ export default function VisitorView() {
           </div>
         </CardContent>
       </Card>
+
+
 {/* Public Leaderboard */}
+<div className="">
 <Leaderboard />
+</div>
+
       {/* Information Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20">

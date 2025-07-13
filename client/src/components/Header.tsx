@@ -44,29 +44,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
           <Button
             onClick={isConnected ? disconnect : connect}
             disabled={isConnecting}
-            className=" group
-          relative
-          inline-flex
-          items-center
-          justify-center
-          px-6
-          py-3
-          font-bold
-          text-white
-          bg-gradient-to-r from-[#302A36] via-[#6e7d49] to-[#D0FF5F]
-          rounded-xl
-          shadow-lg
-          overflow-hidden
-          transition-all
-          duration-500
-          ease-in-out
-          transform
-          hover:scale-105
-          hover:shadow-2xl
-          hover:shadow-[#D0FF5F]/40
-          focus:outline-none
-          focus:ring-4
-          focus:ring-[#D0FF5F]/50 "
+            className=" grou relative inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-gradient-to-r from-[#302A36] via-[#6e7d49] to-[#D0FF5F] rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#D0FF5F]/40 focus:outline-none focus:ring-4 focus:ring-[#D0FF5F]/50 "
           >
              <span className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
             {isConnecting ? 'Connecting...' : isConnected ? 'Disconnect' : 'Connect Wallet'}

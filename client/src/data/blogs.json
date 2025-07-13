@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "title": "Qubic Network Launch: A New Era of Decentralization",
+      "description": "Join us for the official launch of the Qubic Platform. We're unveiling a groundbreaking 15.5M TPS capability, seamless AI integration, and a new standard for decentralized applications.",
+      "content": "The Qubic Platform launch marks a pivotal moment in the evolution of blockchain. Our core innovation is the achievement of 15.5 million transactions per second, a feat made possible by our unique AI-powered consensus mechanism. This not only surpasses existing limitations but also opens the door for complex, real-time applications that were previously unfeasible on a decentralized network. During the event, we will provide a live demonstration of the network's capacity, showcase the first wave of dApps built on Qubic, and outline our roadmap for ecosystem growth and developer support. This is more than a launch; it's the dawn of a new era for useful-Proof-of-Work and feeless transactions.",
+      "date": "2025-07-10",
+      "image": "https://placehold.co/600x400/0a0f1f/e5e7eb?text=Qubic+Launch"
+    },
+    {
+      "id": 2,
+      "title": "AI and Blockchain: The Qubic Synergy",
+      "description": "Explore how Qubic's integration of Artificial Intelligence is revolutionizing our consensus protocol. This synergy enhances security, optimizes network performance, and enables intelligent, autonomous smart contracts.",
+      "content": "At the heart of Qubic's architecture is the symbiotic relationship between AI and blockchain. Unlike traditional consensus models, Qubic utilizes a distributed AI network to validate transactions and secure the ledger. This AI not only detects and neutralizes threats with predictive accuracy but also dynamically allocates network resources to optimize for speed and efficiency. Furthermore, our smart contracts can now leverage AI oracles to interact with complex, real-world data, enabling a new generation of intelligent dApps. From decentralized finance to supply chain management, the possibilities are limitless when intelligence is woven into the fabric of the blockchain.",
+      "date": "2025-06-28",
+      "image": "https://placehold.co/600x400/0a0f1f/e5e7eb?text=AI+Synergy"
+    },
+    {
+      "id": 3,
+      "title": "Developer Deep Dive: Building on Qubic",
+      "description": "A technical overview for developers looking to build on the Qubic Platform. This post covers our SDKs, API documentation, and the unique features of Qubic's smart contract language, Quorum.",
+      "content": "Are you ready to build the next generation of decentralized applications? This guide is your starting point. The Qubic SDK provides a comprehensive toolkit for interacting with the network, available in JavaScript, Python, and Go. Our smart contracts are written in Quorum, a powerful and intuitive language designed for security and performance. Key features include native support for feeless transactions and the ability to execute complex computations via AI integration. We'll walk you through setting up your development environment, writing and deploying your first smart contract, and leveraging the full power of Qubic's 15.5M TPS infrastructure. Dive into our documentation and start building today.",
+      "date": "2025-06-15",
+      "image": "https://placehold.co/600x400/0a0f1f/e5e7eb?text=Developer+Deep+Dive"
+    }
+  ]

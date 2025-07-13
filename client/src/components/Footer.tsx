@@ -1,16 +1,18 @@
 import React from 'react';
 
-import grayLogoImage from "@/assests/images/Qubic-gray-logo.png"
+import LogoImage from "@/assests/images/Qubic-Symbol-White.png"
 
 export default function Footer() {
   return (
     <footer className="text-slate-300 py-4 px-6">
     <div className="flex flex-col md:flex-row items-center justify-center md:justify-center gap-4 md:gap-10 max-w-7xl mx-auto">
       {/* Left side - Logo and copyright */}
-      <div className="flex items-center space-x-3">
-      <img src={grayLogoImage} alt="Logo img" />
-        <span className="text-[#808B9B]">© 2025 Qubic</span>
+      <div className="  flex items-center">
+      <img className='w-8 h-8' src={LogoImage} alt="Logo img" />
+    
+      <span className="text-[#808B9B]">© 2025 Qubic</span>
       </div>
+      
 
       {/* Right side - Links and version */}
       <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 text-sm">

@@ -48,7 +48,7 @@ export default function Leaderboard() {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20 animate-pulse">
+        <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20 animate-pulse">
           <CardContent className="p-6">
             <div className="h-96 bg-gray-800/50 rounded"></div>
           </CardContent>
@@ -59,10 +59,10 @@ export default function Leaderboard() {
 
   return (
     <div className="space-y-6">
-      <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20">
+      <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="text-2xl font-bold text-[#00D4FF] flex items-center">
+            <CardTitle className="text-2xl font-bold text-[#D0FF5F] flex items-center">
               <Trophy className="h-6 w-6 mr-2" />
               Ambassador Leaderboard
             </CardTitle>
@@ -81,11 +81,11 @@ export default function Leaderboard() {
             <Table>
               <TableHeader>
                 <TableRow className="border-b border-gray-700 hover:bg-transparent">
-                  <TableHead className="text-[#A5A5A5] font-medium">Rank</TableHead>
-                  <TableHead className="text-[#A5A5A5] font-medium">Ambassador</TableHead>
-                  <TableHead className="text-[#A5A5A5] font-medium">Points</TableHead>
-                  <TableHead className="text-[#A5A5A5] font-medium">Contributions</TableHead>
-                  <TableHead className="text-[#A5A5A5] font-medium">Last Activity</TableHead>
+                  <TableHead className="text-[#FEFBEB] font-medium">Rank</TableHead>
+                  <TableHead className="text-[#FEFBEB] font-medium">Ambassador</TableHead>
+                  <TableHead className="text-[#FEFBEB] font-medium">Points</TableHead>
+                  <TableHead className="text-[#FEFBEB] font-medium">Contributions</TableHead>
+                  <TableHead className="text-[#FEFBEB] font-medium">Last Activity</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

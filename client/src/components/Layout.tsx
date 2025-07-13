@@ -7,6 +7,7 @@ import Leaderboard from "./Leaderboard";
 import Analytics from "./Analytics";
 import VisitorView from "./VisitorsView";
 
+
 type Section = 'dashboard' | 'contributions' | 'leaderboard' | 'analytics';
 
 export default function Layout() {
@@ -24,27 +25,29 @@ export default function Layout() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const renderContent = () => {
-    return <VisitorView />;
-    // switch (activeSection) {
-    //   case 'dashboard':
-    //     return <DashboardStats />;
-    //   case 'contributions':
-    //     return <ContributionForm />;
-    //   case 'leaderboard':
-    //     return <Leaderboard />;
-    //   case 'analytics':
-    //     return <Analytics />;
-    //   default:
-    //     return <DashboardStats />;
-    // }
-  };
+  // const renderContent = () => {
+  
+  //   switch (activeSection) {
+  //     case 'dashboard':
+  //       return <DashboardStats />;
+  //     case 'contributions':
+  //       return <ContributionForm />;
+  //     case 'leaderboard':
+  //       return <Leaderboard />;
+  //     case 'analytics':
+  //       return <Analytics />;
+  //     default:
+  //       return <DashboardStats />;
+  //   }
+  // };
 
   return (
-    <div className="min-h-screen bg-[#1A1A2E] text-white font-['Space Grotesk']">
+    <div className="min-h-screen bg-[#302A36] text-white font-['Space Grotesk']">
       <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
       <main >
-          {renderContent()}
+      <VisitorView />
+          {/* {renderContent()} */}
+        
         </main>
       {/* <div className="flex pt-16">
         <Sidebar 

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useWallet } from "@/hooks/useWallet";
-import { Menu, Box } from "lucide-react";
+
 import logoImage from "@/assests/images/Qubic-Symbol-White.png"
 
 interface HeaderProps {
@@ -11,7 +11,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
   const { user, isConnected, connect, disconnect, isConnecting } = useWallet();
 
   return (
-    <header className="bg-gray-900/50 backdrop-blur-md border-b border-[#00D4FF]/20 fixed w-full top-0 z-40">
+    <header className="bg-[#302A36] backdrop-blur-md border-b border-[#00D4FF]/20 fixed w-full top-0 z-40">
       <div className="flex items-center justify-between p-4">
         {/* Mobile Menu Button */}
         {/* <Button
@@ -44,8 +44,31 @@ export default function Header({ onMenuClick }: HeaderProps) {
           <Button
             onClick={isConnected ? disconnect : connect}
             disabled={isConnecting}
-            className="bg-gradient-to-r from-[#B0F9FE] to-[#B0F9FE] text-[#16192B] text-[18px] px-6 py-2 font-semibold  transition-all duration-300 "
+            className=" group
+          relative
+          inline-flex
+          items-center
+          justify-center
+          px-6
+          py-3
+          font-bold
+          text-white
+          bg-gradient-to-r from-[#302A36] via-[#6e7d49] to-[#D0FF5F]
+          rounded-xl
+          shadow-lg
+          overflow-hidden
+          transition-all
+          duration-500
+          ease-in-out
+          transform
+          hover:scale-105
+          hover:shadow-2xl
+          hover:shadow-[#D0FF5F]/40
+          focus:outline-none
+          focus:ring-4
+          focus:ring-[#D0FF5F]/50 "
           >
+             <span className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
             {isConnecting ? 'Connecting...' : isConnected ? 'Disconnect' : 'Connect Wallet'}
           </Button>
         </div>

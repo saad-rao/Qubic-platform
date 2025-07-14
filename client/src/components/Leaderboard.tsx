@@ -62,7 +62,7 @@ export default function Leaderboard() {
       <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="text-2xl font-bold text-[#D0FF5F] flex items-center">
+            <CardTitle className="text-2xl font-bold text-[#D0FF5F] flex items-center font-heading">
               <Trophy className="h-6 w-6 mr-2" />
               Ambassador Leaderboard
             </CardTitle>

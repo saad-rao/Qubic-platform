@@ -4,6 +4,7 @@ import { Eye, Users, Trophy, TrendingUp } from "lucide-react";
 import Leaderboard from "./Leaderboard";
 import Footer from "./Footer";
 import BlogSection from "./BlogSection";
+import '../index.css'
 
 export default function VisitorView() {
   return (
@@ -16,7 +17,7 @@ export default function VisitorView() {
               <Eye className="h-6 w-6 text-white" />
             </div> */}
             <div>
-              <CardTitle className="text-2xl font-bold text-[#D0FF5F] ">
+              <CardTitle className="text-2xl font-bold text-[#D0FF5F] font-heading ">
                 Welcome to Qubic Ambassador Program
               </CardTitle>
               <p className="text-[#FEFBEB] mt-1">
@@ -73,7 +74,7 @@ export default function VisitorView() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
+            <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
               About the Ambassador Program
             </CardTitle>
           </CardHeader>
@@ -107,7 +108,7 @@ export default function VisitorView() {
 
         <Card className="bg-[#302A36] backdrop-blur-md border-[#7B2CBF]/20">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
+            <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
               Join the Community
             </CardTitle>
           </CardHeader>
@@ -136,7 +137,7 @@ export default function VisitorView() {
       <section className="py-16 bg-[#302A36]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold mb-2 text-[#D0FF5F] animate-fade-in-up opacity-0 animate-delay-0">
+          <h2 className="text-3xl font-bold mb-2 text-[#D0FF5F] animate-fade-in-up opacity-0 animate-delay-0 font-heading">
             Why Join the Program?
           </h2>
           <p className=" text-[#FEF8E8] animate-fade-in-up opacity-0 animate-delay-400">

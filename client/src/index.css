@@ -2,7 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@400&display=swap');
+
+
+:root {
+  --font-francy-bold: 'FrancyBold', sans-serif;
+  --font-glacial-indifference: 'Glacial Indifference', sans-serif;
+}
+
+/* Class for headings using Francy Bold */
+.font-heading {
+  font-family: var(--font-francy-bold);
+  font-weight: bold;
+}
+
+/* Class for regular text using Glacial Indifference */
+.font-text {
+  font-family: var(--font-glacial-indifference);
+  font-weight: 400;
+}
+
+
+@font-face {
+  font-family: 'FrancyBold';
+  src: url('./assests/font/Francy.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 
 
 :root {
@@ -71,7 +99,7 @@
 body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Space Grotesk';
+    font-family: 'Glacial Indifference';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

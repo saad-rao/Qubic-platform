@@ -18,12 +18,12 @@ export default function Analytics() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Performance Metrics */}
-        <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20">
+        <Card className="bg-[302A36] border-[#00D4FF]/20">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#00D4FF]">
+            <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
               Your Performance
             </CardTitle>
           </CardHeader>
@@ -31,7 +31,7 @@ export default function Analytics() {
             <div className="space-y-4">
               {performanceMetrics.map((metric, index) => (
                 <div key={index} className="flex justify-between items-center">
-                  <span className="text-[#A5A5A5]">{metric.label}</span>
+                  <span className="text-[#FEF8E8]">{metric.label}</span>
                   <span className={`font-bold ${metric.color}`}>
                     {metric.value}
                   </span>
@@ -42,16 +42,16 @@ export default function Analytics() {
         </Card>
 
         {/* Goal Progress */}
-        <Card className="bg-gray-900/50 backdrop-blur-md border-[#7B2CBF]/20">
+        <Card className="bg-[#302A36] backdrop-blur-md border-[#7B2CBF]/20">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#7B2CBF]">
+            <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
               Monthly Goal
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-[#A5A5A5]">Target: 50 points</span>
+                <span className="text-[#FEF8E8]">Target: 50 points</span>
                 <span className="font-bold text-[#7B2CBF]">
                   {monthlyProgress.current}/{monthlyProgress.target}
                 </span>
@@ -62,7 +62,7 @@ export default function Analytics() {
                 className="w-full h-3 bg-gray-700"
               />
               
-              <div className="text-sm text-[#A5A5A5]">
+              <div className="text-sm text-[#FEF8E8]">
                 {monthlyProgress.target - monthlyProgress.current} points to go • 8 days remaining
               </div>
             </div>
@@ -71,9 +71,9 @@ export default function Analytics() {
       </div>
 
       {/* Detailed Analytics Chart */}
-      <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20">
+      <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
         <CardHeader>
-          <CardTitle className="text-xl font-semibold text-[#00D4FF] flex items-center">
+          <CardTitle className="text-xl font-semibold text-[#D0FF5F] flex items-center">
             <TrendingUp className="h-5 w-5 mr-2" />
             Detailed Analytics
           </CardTitle>

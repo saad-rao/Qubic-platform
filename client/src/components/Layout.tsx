@@ -42,7 +42,7 @@ export default function Layout() {
   // };
 
   return (
-    <div className="min-h-screen bg-[#302A36] text-white font-['Space Grotesk']">
+    <div className="min-h-screen bg-[#302A36] text-white">
       <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
       <main >
       <VisitorView />

@@ -21,7 +21,7 @@ export default function DashboardStats() {
       <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[...Array(4)].map((_, i) => (
-            <Card key={i} className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20 animate-pulse">
+            <Card key={i} className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20 animate-pulse">
               <CardContent className="p-6">
                 <div className="h-16 bg-gray-800/50 rounded"></div>
               </CardContent>
@@ -36,11 +36,11 @@ export default function DashboardStats() {
     <div className="space-y-6">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20 gradient-bg">
+        <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20 gradient-bg">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[#A5A5A5] text-sm">Total Contributions</p>
+                <p className="text-[FEF8E8] text-sm">Total Contributions</p>
                 <h3 className="text-3xl font-bold text-[#00D4FF]">
                   {stats?.totalContributions?.toLocaleString() || '0'}
                 </h3>
@@ -60,7 +60,7 @@ export default function DashboardStats() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[#A5A5A5] text-sm">Your Contributions</p>
+                <p className="text-[#FEF8E8] text-sm">Your Contributions</p>
                 <h3 className="text-3xl font-bold text-[#7B2CBF]">
                   {stats?.userContributions || 0}
                 </h3>
@@ -80,7 +80,7 @@ export default function DashboardStats() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[#A5A5A5] text-sm">Your Rank</p>
+                <p className="text-[#FEF8E8] text-sm">Your Rank</p>
                 <h3 className="text-3xl font-bold text-green-400">
                   {stats?.userRank ? `#${stats.userRank}` : 'N/A'}
                 </h3>
@@ -100,7 +100,7 @@ export default function DashboardStats() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[#A5A5A5] text-sm">Total Points</p>
+                <p className="text-[#FEF8E8] text-sm">Total Points</p>
                 <h3 className="text-3xl font-bold text-yellow-400">
                   {stats?.totalPoints || 0}
                 </h3>

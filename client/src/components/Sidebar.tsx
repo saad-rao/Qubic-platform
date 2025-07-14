@@ -32,7 +32,7 @@ export default function Sidebar({ activeSection, onSectionChange, isOpen, onClos
 
   return (
     <aside className={cn(
-      "fixed md:relative w-64 h-full bg-gray-900/30 backdrop-blur-md border-r border-[#00D4FF]/20 sidebar-transition z-30",
+      "fixed md:relative w-64 h-full bg-[#302A36] backdrop-blur-md border-r border-[#00D4FF]/20 sidebar-transition z-30",
       isOpen ? "" : "sidebar-hidden md:translate-x-0"
     )}>
       <nav className="p-6 space-y-4">

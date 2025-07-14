@@ -173,9 +173,9 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Contribution Trend Chart */}
-      <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20">
+      <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
         <CardHeader>
-          <CardTitle className="text-xl font-semibold text-[#00D4FF]">
+          <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
             Your Contribution Trend
           </CardTitle>
         </CardHeader>
@@ -187,9 +187,9 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
       </Card>
 
       {/* Contribution Types Chart */}
-      <Card className="bg-gray-900/50 backdrop-blur-md border-[#7B2CBF]/20">
+      <Card className="bg-[#] backdrop-blur-md border-[#7B2CBF]/20">
         <CardHeader>
-          <CardTitle className="text-xl font-semibold text-[#7B2CBF]">
+          <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
             Contribution Types
           </CardTitle>
         </CardHeader>

@@ -55,16 +55,16 @@ export default function RecentActivity() {
   }
 
   return (
-    <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20">
+    <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold text-[#00D4FF]">
+        <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
           Recent Activity
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {activities.length === 0 ? (
-            <div className="text-center py-8 text-[#A5A5A5]">
+            <div className="text-center py-8 text-[#FEF8E8]">
               <p>No recent activity found.</p>
               <p className="text-sm mt-2">Start contributing to see your activity here!</p>
             </div>

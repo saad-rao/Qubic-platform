@@ -104,16 +104,16 @@ export default function ContributionForm() {
 
   return (
     <div className="space-y-6">
-      <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20">
+      <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-[#00D4FF]">
+          <CardTitle className="text-2xl font-bold text-[#D0FF5F]">
             Submit New Contribution
           </CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Contribution Type */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-[FEF8E8]">
               <Label htmlFor="type">Contribution Type</Label>
               <Select
                 value={formData.type}
@@ -121,7 +121,7 @@ export default function ContributionForm() {
                   setFormData({ ...formData, type: value })
                 }
               >
-                <SelectTrigger className="w-full bg-gray-800 border-gray-600 text-white focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF]">
+                <SelectTrigger className="w-full bg-[#302A36] border-gray-600 text-white focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF]">
                   <SelectValue placeholder="Select contribution type" />
                 </SelectTrigger>
                 <SelectContent className="bg-gray-800 border-gray-600">
@@ -135,7 +135,7 @@ export default function ContributionForm() {
             </div>
 
             {/* URL Input */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-[FEF8E8] ">
               <Label htmlFor="url">Contribution URL</Label>
               <div className="relative">
                 <Input
@@ -144,7 +144,7 @@ export default function ContributionForm() {
                   placeholder="https://twitter.com/your-post or https://github.com/your-commit"
                   value={formData.url}
                   onChange={(e) => handleUrlChange(e.target.value)}
-                  className="w-full bg-gray-800 border-gray-600 text-white focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF] pr-10"
+                  className="w-full bg-[#302A36] border-gray-600 text-white focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF] pr-10"
                 />
                 {urlValid && (
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -152,13 +152,13 @@ export default function ContributionForm() {
                   </div>
                 )}
               </div>
-              <p className="text-sm text-[#A5A5A5]">
+              <p className="text-sm text-[#FEF8E8]">
                 Paste the URL of your contribution (Twitter post, GitHub commit, etc.)
               </p>
             </div>
 
             {/* Description */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-[FEF8E8]">
               <Label htmlFor="description">Description (Optional)</Label>
               <Textarea
                 id="description"
@@ -166,7 +166,7 @@ export default function ContributionForm() {
                 placeholder="Brief description of your contribution..."
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full bg-gray-800 border-gray-600 text-white focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF] resize-none"
+                className="w-full bg-[#302A36] border-gray-600 text-[#FEF8E8] focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF] resize-none"
               />
             </div>
 
@@ -174,8 +174,9 @@ export default function ContributionForm() {
             <Button
               type="submit"
               disabled={!isConnected || contributionMutation.isPending || !formData.type || !formData.url}
-              className="w-full bg-gradient-to-r from-[#00D4FF] to-[#7B2CBF] px-6 py-3 font-semibold neon-glow hover:shadow-[0_0_30px_rgba(123,44,191,0.7)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="  w-full group relative inline-flex items-center justify-center px-6 py-3 font-bold text-[#FEF8E8] bg-gradient-to-r from-[#302A36] via-[#6e7d49] to-[#D0FF5F] rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#D0FF5F]/40 focus:outline-none focus:ring-4 focus:ring-[#D0FF5F]/50"
             >
+             
               {contributionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -190,13 +191,13 @@ export default function ContributionForm() {
       </Card>
 
       {/* Validation Rules */}
-      <Card className="bg-gray-800/50 border-gray-700">
+      <Card className="bg-[#302A36] border-gray-700">
         <CardContent className="p-4">
-          <h4 className="font-semibold mb-2 text-yellow-400 flex items-center">
-            <Info className="h-4 w-4 mr-2" />
+          <h4 className="font-semibold mb-2 text-[#D0FF5F] flex items-center">
+            <Info className="h-4 w-4 mr-2 " />
             Validation Rules
           </h4>
-          <ul className="text-sm text-[#A5A5A5] space-y-1">
+          <ul className="text-sm text-[#FEF8E8] space-y-1">
             <li>• URLs must be public and accessible</li>
             <li>• Twitter posts must mention @QubicOfficial or #Qubic</li>
             <li>• GitHub commits must be in Qubic-related repositories</li>

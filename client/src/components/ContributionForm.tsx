@@ -106,7 +106,7 @@ export default function ContributionForm() {
     <div className="space-y-6">
       <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-[#D0FF5F]">
+          <CardTitle className="text-2xl font-bold text-[#D0FF5F] font-heading">
             Submit New Contribution
           </CardTitle>
         </CardHeader>
@@ -193,8 +193,8 @@ export default function ContributionForm() {
       {/* Validation Rules */}
       <Card className="bg-[#302A36] border-gray-700">
         <CardContent className="p-4">
-          <h4 className="font-semibold mb-2 text-[#D0FF5F] flex items-center">
-            <Info className="h-4 w-4 mr-2 " />
+          <h4 className="font-semibold mb-2 text-[#D0FF5F] flex items-center font-heading">
+            <Info className="h-4 w-4 mr-1 mb-1 " />
             Validation Rules
           </h4>
           <ul className="text-sm text-[#FEF8E8] space-y-1">

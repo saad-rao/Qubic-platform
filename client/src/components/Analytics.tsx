@@ -23,7 +23,7 @@ export default function Analytics() {
         {/* Performance Metrics */}
         <Card className="bg-[302A36] border-[#00D4FF]/20">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
+            <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
               Your Performance
             </CardTitle>
           </CardHeader>
@@ -44,7 +44,7 @@ export default function Analytics() {
         {/* Goal Progress */}
         <Card className="bg-[#302A36] backdrop-blur-md border-[#7B2CBF]/20">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
+            <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
               Monthly Goal
             </CardTitle>
           </CardHeader>
@@ -73,7 +73,7 @@ export default function Analytics() {
       {/* Detailed Analytics Chart */}
       <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
         <CardHeader>
-          <CardTitle className="text-xl font-semibold text-[#D0FF5F] flex items-center">
+          <CardTitle className="text-xl font-semibold text-[#D0FF5F] flex items-center font-heading">
             <TrendingUp className="h-5 w-5 mr-2" />
             Detailed Analytics
           </CardTitle>

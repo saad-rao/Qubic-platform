@@ -45,7 +45,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, isExpanded, onToggle }) => {
       </div>
       
       <div className="p-6 flex flex-col flex-grow">
-      <h3 className="text-xl font-bold text-[#D0FF5F] mb-3">{blog.title}</h3>
+      <h3 className="text-xl font-bold text-[#D0FF5F] mb-3 font-heading ">{blog.title}</h3>
       <p className="text-sm text-text-muted mb-2">{formatDate(blog.date)}</p>
         
         {/* The full content area with smooth animation */}
@@ -89,7 +89,7 @@ const BlogSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           {/* Using the new 'text-section-heading' color */}
-          <h2 className="text-3xl text-bold text-[#D0FF5F] sm:text-4xl">
+          <h2 className="text-3xl text-bold text-[#D0FF5F] sm:text-4xl font-heading">
             Latest News & Updates
           </h2>
           {/* Using the new 'text-body-text' color */}

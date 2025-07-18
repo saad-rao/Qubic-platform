@@ -1,30 +1,47 @@
-import { Switch, Route } from "wouter";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./components/Layout";
+import DashboardLayout from "./components/DashboardLayout";
+import VisitorsView from "./components/VisitorsView";
+import Dashboard from "./pages/dashboard";
+import { useWallet } from "@/hooks/useWallet";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Dashboard from "@/pages/dashboard";
+import { WalletProvider } from "@/hooks/useWallet";
 
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Dashboard} />
-      <Route component={Dashboard} />
-    </Switch>
-  );
+function ProtectedRoute({ element }: { element: React.ReactElement }) {
+  const { isConnected } = useWallet();
+  return isConnected ? element : <Navigate to="/dashboard" />;
 }
 
-function App() {
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="dark">
           <Toaster />
-          <Router />
+          <WalletProvider>
+            <BrowserRouter>
+              <Routes>
+                {/* Visitor route: no dashboard layout */}
+                <Route path="/" element={<Layout><VisitorsView /></Layout>} />
+
+                {/* Dashboard route: uses dashboard layout */}
+                <Route
+                  path="/dashboard"
+                  element={
+                    <DashboardLayout>
+                      <ProtectedRoute element={<Dashboard />} />
+                    </DashboardLayout>
+                  }
+                />
+                {/* Add other routes as needed */}
+              </Routes>
+            </BrowserRouter>
+          </WalletProvider>
         </div>
       </TooltipProvider>
     </QueryClientProvider>
   );
 }
-
-export default App;

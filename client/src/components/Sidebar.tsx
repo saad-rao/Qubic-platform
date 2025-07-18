@@ -52,7 +52,7 @@ export default function Sidebar({ activeSection, onSectionChange, isOpen, onClos
                     : "hover:bg-gray-800/50 text-white"
                 )}
               >
-                <Icon className="h-5 w-5 text-[#2DE1F6] " />
+                <Icon className="h-5 w-5 text-[#D0FF5F] " />
                 <span className="text-[#FFFFFF] text-[18px] font-semi-bold">{item.label}</span>
               </button>
             );
@@ -70,7 +70,7 @@ export default function Sidebar({ activeSection, onSectionChange, isOpen, onClos
                   onClick={() => handleItemClick(item.id)}
                   className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800/50 transition-colors text-left text-white"
                 >
-                  <Icon className="h-5 w-5 text-[#2DE1F6]" />
+                  <Icon className="h-5 w-5 text-[#D0FF5F]" />
                   <span className="text-[#FFFFFF] text-[18px] font-semi-bold ">{item.label}</span>
                 </button>
               );

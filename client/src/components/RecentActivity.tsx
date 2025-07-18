@@ -57,7 +57,7 @@ export default function RecentActivity() {
   return (
     <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold text-[#D0FF5F]">
+        <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
           Recent Activity
         </CardTitle>
       </CardHeader>

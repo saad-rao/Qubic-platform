@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext, createContext } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
@@ -11,7 +11,14 @@ interface WalletState {
   isConnecting: boolean;
 }
 
-export function useWallet() {
+interface WalletContextType extends WalletState {
+  connect: () => void;
+  disconnect: () => void;
+}
+
+const WalletContext = createContext<WalletContextType | undefined>(undefined);
+
+export function WalletProvider({ children }: { children: React.ReactNode }) {
   const [walletState, setWalletState] = useState<WalletState>({
     user: null,
     isConnected: false,
@@ -63,7 +70,7 @@ export function useWallet() {
         title: "Wallet Disconnected",
         description: "Successfully disconnected from your wallet.",
       });
-      queryClient.invalidateQueries({ queryKey: ['/api/dashboard'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/VisitorView'] });
     },
     onError: (error: Error) => {
       toast({
@@ -76,16 +83,11 @@ export function useWallet() {
 
   const connect = useCallback(() => {
     if (walletState.isConnecting) return;
-
     setWalletState(prev => ({ ...prev, isConnecting: true }));
-    
-    // Simulate QubicJ wallet connection
-    // In a real implementation, this would integrate with the actual QubicJ library
     toast({
       title: "Connecting...",
       description: "Please approve the connection in your Qubic wallet.",
     });
-
     setTimeout(() => {
       const mockWalletAddress = generateMockWalletAddress();
       connectMutation.mutate(mockWalletAddress);
@@ -97,11 +99,23 @@ export function useWallet() {
     disconnectMutation.mutate(walletState.user.walletAddress);
   }, [walletState.user, disconnectMutation]);
 
-  return {
-    user: walletState.user,
-    isConnected: walletState.isConnected,
-    isConnecting: walletState.isConnecting,
+  const value: WalletContextType = {
+    ...walletState,
     connect,
     disconnect
   };
+
+  return (
+    <WalletContext.Provider value={value}>
+      {children}
+    </WalletContext.Provider>
+  );
+}
+
+export function useWallet() {
+  const context = useContext(WalletContext);
+  if (context === undefined) {
+    throw new Error('useWallet must be used within a WalletProvider');
+  }
+  return context;
 }

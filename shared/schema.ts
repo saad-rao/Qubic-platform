@@ -6,10 +6,12 @@ export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   walletAddress: text("wallet_address").notNull().unique(),
   username: text("username"),
+  role: text("role").default('visitor'), // 'visitor', 'ambassador'
   totalPoints: integer("total_points").default(0),
   totalContributions: integer("total_contributions").default(0),
   rank: integer("rank").default(0),
   isConnected: boolean("is_connected").default(false),
+  isApproved: boolean("is_approved").default(false),
   createdAt: timestamp("created_at").defaultNow(),
   lastActivity: timestamp("last_activity").defaultNow()
 });

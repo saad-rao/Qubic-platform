@@ -1,4 +1,4 @@
-import { users, contributions, type User, type InsertUser, type Contribution, type InsertContribution, type DashboardStats, type LeaderboardEntry, type ContributionActivity } from "@shared/schema";
+import { type User, type InsertUser, type Contribution, type InsertContribution, type DashboardStats, type LeaderboardEntry, type ContributionActivity } from "@shared/schema";
 
 export interface IStorage {
   // User operations

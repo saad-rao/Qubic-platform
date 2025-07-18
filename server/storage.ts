@@ -13,6 +13,9 @@ export interface IStorage {
   getContributionByUrl(url: string): Promise<Contribution | undefined>;
   getAllContributions(): Promise<Contribution[]>;
   
+  // Task operations
+  getTasks(userId?: number): Promise<any[]>;
+  
   // Analytics operations
   getDashboardStats(userId?: number): Promise<DashboardStats>;
   getLeaderboard(limit?: number): Promise<LeaderboardEntry[]>;
@@ -46,10 +49,12 @@ export class MemStorage implements IStorage {
         id: this.currentUserId++,
         walletAddress: userData.walletAddress,
         username: userData.username,
+        role: 'ambassador',
         totalPoints: userData.totalPoints,
         totalContributions: userData.totalContributions,
         rank: userData.rank,
         isConnected: false,
+        isApproved: true,
         createdAt: new Date(),
         lastActivity: new Date()
       };
@@ -72,6 +77,13 @@ export class MemStorage implements IStorage {
     const user: User = {
       ...insertUser,
       id,
+      username: insertUser.username || null,
+      role: insertUser.role || null,
+      totalPoints: insertUser.totalPoints || null,
+      totalContributions: insertUser.totalContributions || null,
+      rank: insertUser.rank || null,
+      isConnected: insertUser.isConnected || null,
+      isApproved: insertUser.isApproved || null,
       createdAt: new Date(),
       lastActivity: new Date()
     };
@@ -93,6 +105,7 @@ export class MemStorage implements IStorage {
     const contribution: Contribution = {
       ...insertContribution,
       id,
+      description: insertContribution.description || null,
       status: 'approved', // Auto-approve for MVP
       createdAt: new Date(),
       validatedAt: new Date()
@@ -129,7 +142,7 @@ export class MemStorage implements IStorage {
   async getContributionsByUser(userId: number): Promise<Contribution[]> {
     return Array.from(this.contributions.values())
       .filter(contribution => contribution.userId === userId)
-      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+      .sort((a, b) => new Date(b.createdAt || new Date()).getTime() - new Date(a.createdAt || new Date()).getTime());
   }
 
   async getContributionByUrl(url: string): Promise<Contribution | undefined> {
@@ -177,7 +190,7 @@ export class MemStorage implements IStorage {
         walletAddress: user.walletAddress,
         totalPoints: user.totalPoints || 0,
         totalContributions: user.totalContributions || 0,
-        lastActivity: user.lastActivity.toISOString()
+        lastActivity: (user.lastActivity || new Date()).toISOString()
       }));
   }
 
@@ -189,14 +202,14 @@ export class MemStorage implements IStorage {
     }
     
     return contributions
-      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .sort((a, b) => new Date(b.createdAt || new Date()).getTime() - new Date(a.createdAt || new Date()).getTime())
       .slice(0, limit)
       .map(contribution => ({
         id: contribution.id,
         type: contribution.type,
         description: this.getActivityDescription(contribution),
         points: contribution.points,
-        createdAt: contribution.createdAt.toISOString(),
+        createdAt: (contribution.createdAt || new Date()).toISOString(),
         status: contribution.status || 'approved'
       }));
   }
@@ -209,6 +222,41 @@ export class MemStorage implements IStorage {
       medium: 'Published article on Medium'
     };
     return typeMap[contribution.type as keyof typeof typeMap] || 'Made a contribution';
+  }
+
+  async getTasks(userId?: number): Promise<any[]> {
+    // Mock tasks for ambassadors
+    const mockTasks = [
+      {
+        id: 1,
+        title: 'Post about Qearn dApp',
+        description: 'Share your experience with the Qearn dApp on social media',
+        type: 'social',
+        points: 50,
+        status: 'active',
+        deadline: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
+      },
+      {
+        id: 2,
+        title: 'Host community event',
+        description: 'Organize a local meetup or online event for Qubic community',
+        type: 'event',
+        points: 100,
+        status: 'active',
+        deadline: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString()
+      },
+      {
+        id: 3,
+        title: 'Create educational content',
+        description: 'Write a blog post or create a video about Qubic technology',
+        type: 'content',
+        points: 75,
+        status: 'active',
+        deadline: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString()
+      }
+    ];
+
+    return mockTasks;
   }
 }
 

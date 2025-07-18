@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useWallet } from "@/hooks/useWallet";
+import { useNavigate } from "react-router-dom";
+import React from "react";
 
 import logoImage from "@/assests/images/Qubic-Symbol-White.png"
 
@@ -9,6 +11,14 @@ interface HeaderProps {
 
 export default function Header({ onMenuClick }: HeaderProps) {
   const { user, isConnected, connect, disconnect, isConnecting } = useWallet();
+  const navigate = useNavigate();
+
+  // Redirect to dashboard after successful connection
+  React.useEffect(() => {
+    if (isConnected) {
+      navigate("/dashboard");
+    }
+  }, [isConnected, navigate]);
 
   return (
     <header className="bg-[#302A36] backdrop-blur-md border-b border-[#00D4FF]/20 fixed w-full top-0 z-40">
@@ -35,18 +45,21 @@ export default function Header({ onMenuClick }: HeaderProps) {
         {/* Wallet Connection */}
         <div className="flex items-center space-x-4">
           {isConnected && user && (
-            <div className="hidden sm:block bg-green-500/20 border border-green-500/30 px-3 py-1 rounded-full text-sm">
+            <div className="bg-green-500/20 border border-green-500/30 px-3 py-1 rounded-full text-sm flex items-center">
               <span className="mr-2">🔗</span>
-              <span>{user.walletAddress.slice(0, 6)}...{user.walletAddress.slice(-4)}</span>
+              <span className="font-mono">{user.walletAddress.slice(0, 6)}...{user.walletAddress.slice(-4)}</span>
             </div>
           )}
-          
           <Button
             onClick={isConnected ? disconnect : connect}
             disabled={isConnecting}
             className="font-heading group relative inline-flex items-center justify-center px-6 py-3 font-bold text-white bg-gradient-to-r from-[#302A36] via-[#6e7d49] to-[#D0FF5F] rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#D0FF5F]/40 focus:outline-none focus:ring-4 focus:ring-[#D0FF5F]/50 ">
              <span className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
-            {isConnecting ? 'Connecting...' : isConnected ? 'Disconnect' : 'Connect Wallet'}
+            {isConnecting
+              ? 'Connecting...'
+              : isConnected && user
+                ? 'Connected'
+                : 'Connect Wallet'}
           </Button>
         </div>
       </div>

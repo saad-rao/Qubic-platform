@@ -1,5 +1,19 @@
-import Layout from "@/components/Layout";
+import DashboardStats from "../components/DashboardStats";
+import ContributionForm from "../components/ContributionForm";
+import Leaderboard from "../components/Leaderboard";
+import Analytics from "../components/Analytics";
+import Charts from "../components/Charts";
 
 export default function Dashboard() {
-  return <Layout />;
+  return (
+    <>
+      <DashboardStats />
+      <ContributionForm />
+      <Leaderboard />
+      <Analytics />
+      <Charts />
+    </>
+  );
 }
+
+

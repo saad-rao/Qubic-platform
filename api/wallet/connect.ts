@@ -16,8 +16,18 @@ export default async function handler(req, res) {
     res.status(405).json({ message: 'Method Not Allowed' });
     return;
   }
+  // Vercel may not parse JSON body automatically
+  let body = req.body;
+  if (typeof body === 'string') {
+    try {
+      body = JSON.parse(body);
+    } catch (e) {
+      res.status(400).json({ message: 'Invalid JSON body' });
+      return;
+    }
+  }
   try {
-    const { walletAddress } = connectWalletSchema.parse(req.body);
+    const { walletAddress } = connectWalletSchema.parse(body);
     const isAmbassador = isAmbassadorWallet(walletAddress);
     let user = await storage.getUserByWallet(walletAddress);
     if (!user) {

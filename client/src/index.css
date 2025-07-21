@@ -128,3 +128,83 @@ body {
     }
   }
 }
+
+:root {
+  --color-bg-dark: #302A36;
+  --color-bg-light: #FEF8E8;
+  --color-text-dark: #FEF8E8;
+  --color-text-light: #302A36;
+}
+
+[data-theme="dark"] body, body[data-theme="dark"] {
+  background: var(--color-bg-dark);
+  color: var(--color-bg-light);
+}
+[data-theme="light"] body, body[data-theme="light"] {
+  background: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  color: var(--color-text-light);
+}
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: var(--color-bg-light);
+}
+
+[data-theme="light"] .text-white {
+  color: var(--color-text-light) !important;
+}
+[data-theme="dark"] .text-white {
+  color: var(--color-bg-light) !important;
+}
+
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
+[data-theme="light"] [class*="bg-gray-900\\/50"],
+[data-theme="light"] [class*="bg-gray-800\\/30"] {
+  background: var(--color-bg-light) !important;
+}
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
+[data-theme="light"] [class*="bg-gray-900\\/50"],
+[data-theme="light"] [class*="bg-gray-800\\/30"] {
+  background: var(--color-bg-light) !important;
+}
+
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
+[data-theme="light"] [class*="bg-gray-900\\/50"],
+[data-theme="light"] [class*="bg-gray-800\\/30"] {
+  background: var(--color-bg-light) !important;
+}
+
+[data-theme="light"] .font-heading {
+  color: var(--color-text-light) !important;
+}
+[data-theme="light"] .bg-white {
+  background: var(--color-bg-light) !important;
+}
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
+[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
+[data-theme="light"] [class*="bg-gray-900\\/50"],
+[data-theme="light"] [class*="bg-gray-800\\/30"] {
+  background: var(--color-bg-light) !important;
+}
+
+body, html {
+  transition: background 0.3s, color 0.3s;
+}
+[data-theme] body, body[data-theme] {
+  transition: background 0.3s, color 0.3s;
+}

@@ -1,36 +1,35 @@
 import React from 'react';
-
 import LogoImage from "@/assests/images/Qubic-Symbol-White.png"
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const isLight = theme === "light";
   return (
-    <footer className="text-slate-300 py-4 px-6">
-    <div className="flex flex-col md:flex-row items-center justify-center md:justify-center gap-4 md:gap-10 max-w-7xl mx-auto">
-      {/* Left side - Logo and copyright */}
-      <div className="  flex items-center">
-      <img className='w-8 h-8' src={LogoImage} alt="Logo img" />
-    
-      <span className="text-[#808B9B]">© 2025 Qubic</span>
-      </div>
-      
-
-      {/* Right side - Links and version */}
-      <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 text-sm">
-        <div className="flex items-center space-x-3">
-          <a href="#" className="text-white hover:text-blue-500 transition-colors">
-            Terms of service
-          </a>
-          <span className="text-[#9E9E9E]">•</span>
-          <a href="#" className="text-white hover:text-blue-500 transition-colors">
-            Privacy Policy
-          </a>
-        </div>
+    <footer className={isLight ? "py-4 px-6 bg-[#FEF8E8]" : "text-slate-300 py-4 px-6"}>
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-center gap-4 md:gap-10 max-w-7xl mx-auto">
+        {/* Left side - Logo and copyright */}
         <div className="flex items-center">
-          <span className="text-[#9E9E9E] hidden sm:inline">•</span>
-          <span className="text-white sm:ml-4">Version 1.0.2</span>
+          <img className='w-8 h-8' src={LogoImage} alt="Logo img" style={isLight ? { filter: "brightness(0)" } : {}} />
+          <span className={isLight ? "text-[#302A36] ml-2" : "text-[#808B9B] ml-2"}>&copy; 2025 Qubic</span>
+        </div>
+        {/* Right side - Links and version */}
+        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 text-sm">
+          <div className="flex items-center space-x-3">
+            <a href="#" className={isLight ? "text-[#302A36] hover:text-blue-500 transition-colors" : "text-white hover:text-blue-500 transition-colors"}>
+              Terms of service
+            </a>
+            <span className={isLight ? "text-[#302A36]" : "text-[#9E9E9E]"}>•</span>
+            <a href="#" className={isLight ? "text-[#302A36] hover:text-blue-500 transition-colors" : "text-white hover:text-blue-500 transition-colors"}>
+              Privacy Policy
+            </a>
+          </div>
+          <div className="flex items-center">
+            <span className={isLight ? "text-[#302A36] hidden sm:inline" : "text-[#9E9E9E] hidden sm:inline"}>•</span>
+            <span className={isLight ? "text-[#302A36] sm:ml-4" : "text-white sm:ml-4"}>Version 1.0.2</span>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   );
 }

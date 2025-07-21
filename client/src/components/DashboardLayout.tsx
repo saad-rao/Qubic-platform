@@ -5,6 +5,7 @@ import DashboardStats from "./DashboardStats";
 import ContributionForm from "./ContributionForm";
 import Leaderboard from "./Leaderboard";
 import Analytics from "./Analytics";
+import { useTheme } from "@/hooks/useTheme";
 
 export type Section = 'dashboard' | 'contributions' | 'leaderboard' | 'analytics';
 
@@ -19,6 +20,7 @@ export const SectionContext = createContext<{
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<Section>('dashboard');
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,7 +50,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <SectionContext.Provider value={{ activeSection, setActiveSection }}>
-      <div className="min-h-screen bg-[#302A36] text-white">
+      <div
+        className={
+          theme === "light"
+            ? "min-h-screen bg-[#FEF8E8] text-[#302A36]"
+            : "min-h-screen bg-[#302A36] text-white"
+        }
+      >
         <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
          
         <div className="flex pt-16">

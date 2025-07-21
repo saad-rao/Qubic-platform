@@ -9,6 +9,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { WalletProvider } from "@/hooks/useWallet";
+import { ThemeProvider } from "@/hooks/useTheme";
 
 function ProtectedRoute({ element }: { element: React.ReactElement }) {
   const { isConnected } = useWallet();
@@ -21,25 +22,27 @@ export default function App() {
       <TooltipProvider>
         <div className="dark">
           <Toaster />
-          <WalletProvider>
-            <BrowserRouter>
-              <Routes>
-                {/* Visitor route: no dashboard layout */}
-                <Route path="/" element={<Layout><VisitorsView /></Layout>} />
+          <ThemeProvider>
+            <WalletProvider>
+              <BrowserRouter>
+                <Routes>
+                  {/* Visitor route: no dashboard layout */}
+                  <Route path="/" element={<Layout><VisitorsView /></Layout>} />
 
-                {/* Dashboard route: uses dashboard layout */}
-                <Route
-                  path="/dashboard"
-                  element={
-                    <DashboardLayout>
-                      <ProtectedRoute element={<Dashboard />} />
-                    </DashboardLayout>
-                  }
-                />
-                {/* Add other routes as needed */}
-              </Routes>
-            </BrowserRouter>
-          </WalletProvider>
+                  {/* Dashboard route: uses dashboard layout */}
+                  <Route
+                    path="/dashboard"
+                    element={
+                      <DashboardLayout>
+                        <ProtectedRoute element={<Dashboard />} />
+                      </DashboardLayout>
+                    }
+                  />
+                  {/* Add other routes as needed */}
+                </Routes>
+              </BrowserRouter>
+            </WalletProvider>
+          </ThemeProvider>
         </div>
       </TooltipProvider>
     </QueryClientProvider>

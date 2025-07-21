@@ -3,9 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useWallet } from "@/hooks/useWallet";
 import type { ContributionActivity } from "@shared/schema";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function RecentActivity() {
   const { user } = useWallet();
+  const { theme } = useTheme();
 
   const { data: activityData, isLoading } = useQuery<{ activities: ContributionActivity[] }>({
     queryKey: [user ? `/api/activity/${user.walletAddress}` : '/api/activity'],
@@ -46,25 +48,25 @@ export default function RecentActivity() {
 
   if (isLoading) {
     return (
-      <Card className="bg-gray-900/50 backdrop-blur-md border-[#00D4FF]/20 animate-pulse">
+      <Card className={theme === "light" ? "bg-[#FEF8E8] border-[#302A36]/20 animate-pulse" : "bg-gray-900/50 border-[#00D4FF]/20 animate-pulse"}>
         <CardContent className="p-6">
-          <div className="h-64 bg-gray-800/50 rounded"></div>
+          <div className={theme === "light" ? "h-64 bg-[#FEF8E8] rounded" : "h-64 bg-gray-800/50 rounded"}></div>
         </CardContent>
       </Card>
     );
   }
 
   return (
-    <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
+    <Card className={theme === "light" ? "bg-[#FEF8E8] border-[#302A36]/20" : "bg-[#302A36] border-[#00D4FF]/20"}>
       <CardHeader>
-        <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
+        <CardTitle className={theme === "light" ? "text-xl font-semibold text-[#302A36] font-heading" : "text-xl font-semibold text-[#D0FF5F] font-heading"}>
           Recent Activity
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {activities.length === 0 ? (
-            <div className="text-center py-8 text-[#FEF8E8]">
+            <div className={theme === "light" ? "text-center py-8 text-[#302A36]" : "text-center py-8 text-[#FEF8E8]"}>
               <p>No recent activity found.</p>
               <p className="text-sm mt-2">Start contributing to see your activity here!</p>
             </div>
@@ -72,14 +74,16 @@ export default function RecentActivity() {
             activities.map((activity) => (
               <div
                 key={activity.id}
-                className="flex items-center space-x-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50"
+                className={theme === "light"
+                  ? "flex items-center space-x-4 p-4 bg-[#FEF8E8] rounded-lg border border-[#302A36]/20"
+                  : "flex items-center space-x-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50"}
               >
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${getActivityColor(activity.type)}`}>
                   <span className="text-xl">{getActivityIcon(activity.type)}</span>
                 </div>
                 <div className="flex-1">
                   <p className="font-medium">{activity.description}</p>
-                  <p className="text-sm text-[#A5A5A5]">
+                  <p className={theme === "light" ? "text-sm text-[#302A36]" : "text-sm text-[#A5A5A5]"}>
                     {formatTimeAgo(activity.createdAt)} • +{activity.points} point{activity.points !== 1 ? 's' : ''}
                   </p>
                 </div>

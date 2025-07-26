@@ -1,3 +1,28 @@
+# Qubic Platform
+
+## Backend Structure (MongoDB + Mongoose)
+
+The backend is now fully separated from the frontend and lives in the `backend/` folder. It uses Express, MongoDB, and Mongoose, and is organized for scalability and maintainability:
+
+```
+backend/
+└── src/
+    ├── config/         # DB & app config
+    ├── controllers/    # Route handler logic
+    ├── models/         # Mongoose schemas
+    ├── routes/         # Express routers
+    ├── middlewares/    # Auth, error, role checks
+    ├── utils/          # Reusable helpers
+    ├── types/          # TypeScript interfaces & types
+    └── index.ts        # Main entry point
+```
+
+- **Frontend code** remains in `client/`.
+- **Backend code** is now in `backend/` and runs independently (e.g., on port 5000).
+- The frontend communicates with the backend via API calls (e.g., `http://localhost:5000/api/...`).
+
+---
+
 # Qubic Ambassador Analytics Dashboard
 
 ## Overview

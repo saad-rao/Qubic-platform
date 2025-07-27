@@ -99,34 +99,87 @@
 body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Glacial Indifference';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-glacial-indifference);
   }
-}
 
-@layer utilities {
   .neon-glow {
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
   }
-  
+
   .neon-glow:hover {
-    box-shadow: 0 0 30px rgba(123, 44, 191, 0.7);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
   }
-  
+
   .gradient-bg {
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(123, 44, 191, 0.1) 100%);
+    background: linear-gradient(135deg, #302A36 0%, #7B2CBF 100%);
   }
   
+  /* Responsive sidebar styles */
   .sidebar-transition {
     transition: transform 0.3s ease-in-out;
   }
   
+  /* Prevent horizontal scroll on mobile */
   @media (max-width: 768px) {
-    .sidebar-hidden {
-      transform: translateX(-100%);
+    body {
+      overflow-x: hidden;
+    }
+    
+    .dashboard-container {
+      overflow-x: hidden;
     }
   }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Theme-specific animations */
+[data-theme="light"] .hover-lift:hover {
+  box-shadow: 0 8px 25px rgba(48, 42, 54, 0.1);
+}
+
+[data-theme="dark"] .hover-lift:hover {
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
 }
 
 :root {
@@ -169,42 +222,38 @@ body {
   color: var(--color-bg-light) !important;
 }
 
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
-[data-theme="light"] [class*="bg-gray-900\\/50"],
-[data-theme="light"] [class*="bg-gray-800\\/30"] {
-  background: var(--color-bg-light) !important;
-}
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
-[data-theme="light"] [class*="bg-gray-900\\/50"],
-[data-theme="light"] [class*="bg-gray-800\\/30"] {
-  background: var(--color-bg-light) !important;
+[data-theme="light"] [class*="bg-\[#302A36\]"],
+[data-theme="light"] .bg-\[#302A36\] {
+  background-color: var(--color-text-light) !important;
 }
 
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
-[data-theme="light"] [class*="bg-gray-900\\/50"],
-[data-theme="light"] [class*="bg-gray-800\\/30"] {
-  background: var(--color-bg-light) !important;
+[data-theme="light"] [class*="bg-\[#302A36\]"],
+[data-theme="light"] .bg-\[#302A36\] {
+  background-color: var(--color-text-light) !important;
+}
+
+[data-theme="light"] [class*="bg-\[#302A36\]"],
+[data-theme="light"] .bg-\[#302A36\] {
+  background-color: var(--color-text-light) !important;
 }
 
 [data-theme="light"] .font-heading {
-  color: var(--color-text-light) !important;
+  color: var(--color-text-light);
 }
+
 [data-theme="light"] .bg-white {
-  background: var(--color-bg-light) !important;
+  background-color: var(--color-bg-light) !important;
 }
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]"],
-[data-theme="light"] [class*="bg-\\[\\#302A36\\]\\/50"],
-[data-theme="light"] [class*="bg-gray-900\\/50"],
-[data-theme="light"] [class*="bg-gray-800\\/30"] {
-  background: var(--color-bg-light) !important;
+
+[data-theme="light"] [class*="bg-\[#302A36\]"],
+[data-theme="light"] .bg-\[#302A36\] {
+  background-color: var(--color-text-light) !important;
 }
 
 body, html {
-  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
+
 [data-theme] body, body[data-theme] {
-  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
 }

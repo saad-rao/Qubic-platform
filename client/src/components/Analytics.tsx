@@ -1,9 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { TrendingUp } from "lucide-react";
+import { useTheme } from "@/hooks/useTheme";
+import { cn } from "@/lib/utils";
 import Charts from "./Charts";
 
 export default function Analytics() {
+  const { theme } = useTheme();
+  
   const performanceMetrics = [
     { label: 'Weekly Average', value: '3.2 points', color: 'text-[#00D4FF]' },
     { label: 'Best Week', value: '8 points', color: 'text-green-400' },
@@ -18,21 +22,50 @@ export default function Analytics() {
   };
 
   return (
-    <div className="space-y-6 ">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="space-y-4 md:space-y-6">
+      {/* Section Heading */}
+      <div className="text-center mb-6 md:mb-8">
+        <h2 className={cn(
+          "text-2xl md:text-3xl font-bold font-heading transition-colors duration-200",
+          theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+        )}>
+          Your Analytics
+        </h2>
+        <p className={cn(
+          "text-base md:text-lg mt-2 transition-colors duration-200",
+          theme === "light" ? "text-[#302A36]/80" : "text-[#FEF8E8]/80"
+        )}>
+          Track your contribution performance and progress
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {/* Performance Metrics */}
-        <Card className="bg-[302A36] border-[#00D4FF]/20">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
+        <Card className={cn(
+          "backdrop-blur-md transition-all duration-200",
+          theme === "light" 
+            ? "bg-[#FEF8E8] border-[#302A36]/20" 
+            : "bg-[#302A36] border-[#00D4FF]/20"
+        )}>
+          <CardHeader className="pb-3 md:pb-6">
+            <CardTitle className={cn(
+              "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
+              theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+            )}>
               Your Performance
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {performanceMetrics.map((metric, index) => (
                 <div key={index} className="flex justify-between items-center">
-                  <span className="text-[#FEF8E8]">{metric.label}</span>
-                  <span className={`font-bold ${metric.color}`}>
+                  <span className={cn(
+                    "text-sm md:text-base transition-colors duration-200",
+                    theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+                  )}>
+                    {metric.label}
+                  </span>
+                  <span className={`font-bold text-sm md:text-base ${metric.color}`}>
                     {metric.value}
                   </span>
                 </div>
@@ -42,27 +75,46 @@ export default function Analytics() {
         </Card>
 
         {/* Goal Progress */}
-        <Card className="bg-[#302A36] backdrop-blur-md border-[#7B2CBF]/20">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
+        <Card className={cn(
+          "backdrop-blur-md transition-all duration-200",
+          theme === "light" 
+            ? "bg-[#FEF8E8] border-[#302A36]/20" 
+            : "bg-[#302A36] border-[#7B2CBF]/20"
+        )}>
+          <CardHeader className="pb-3 md:pb-6">
+            <CardTitle className={cn(
+              "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
+              theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+            )}>
               Monthly Goal
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-[#FEF8E8]">Target: 50 points</span>
-                <span className="font-bold text-[#7B2CBF]">
+                <span className={cn(
+                  "text-sm md:text-base transition-colors duration-200",
+                  theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+                )}>
+                  Target: 50 points
+                </span>
+                <span className="font-bold text-sm md:text-base text-[#7B2CBF]">
                   {monthlyProgress.current}/{monthlyProgress.target}
                 </span>
               </div>
               
               <Progress 
                 value={monthlyProgress.percentage} 
-                className="w-full h-3 bg-gray-700"
+                className={cn(
+                  "w-full h-2 md:h-3 transition-colors duration-200",
+                  theme === "light" ? "bg-[#302A36]/20" : "bg-gray-700"
+                )}
               />
               
-              <div className="text-sm text-[#FEF8E8]">
+              <div className={cn(
+                "text-xs md:text-sm transition-colors duration-200",
+                theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+              )}>
                 {monthlyProgress.target - monthlyProgress.current} points to go • 8 days remaining
               </div>
             </div>
@@ -71,15 +123,23 @@ export default function Analytics() {
       </div>
 
       {/* Detailed Analytics Chart */}
-      <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold text-[#D0FF5F] flex items-center font-heading">
-            <TrendingUp className="h-5 w-5 mr-2" />
+      <Card className={cn(
+        "backdrop-blur-md transition-all duration-200",
+        theme === "light" 
+          ? "bg-[#FEF8E8] border-[#302A36]/20" 
+          : "bg-[#302A36] border-[#00D4FF]/20"
+      )}>
+        <CardHeader className="pb-3 md:pb-6">
+          <CardTitle className={cn(
+            "text-lg md:text-xl font-semibold flex items-center font-heading transition-colors duration-200",
+            theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+          )}>
+            <TrendingUp className="h-4 w-4 md:h-5 md:w-5 mr-2" />
             Detailed Analytics
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-80">
+          <div className="h-64 md:h-80">
             <Charts showDetailed />
           </div>
         </CardContent>

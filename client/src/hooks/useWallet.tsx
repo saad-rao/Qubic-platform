@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 import { generateMockWalletAddress } from '@/lib/utils';
-import type { User } from '@shared/schema';
+import type { User } from '@/types/dashboard';
 
 interface WalletState {
   user: User | null;

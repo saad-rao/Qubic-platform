@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useWallet } from "@/hooks/useWallet";
-import type { ContributionActivity } from "@shared/schema";
 import { useTheme } from "@/hooks/useTheme";
+import { cn } from "@/lib/utils";
+import type { ContributionActivity } from "@/types/dashboard";
 
 export default function RecentActivity() {
   const { user } = useWallet();
@@ -48,47 +49,84 @@ export default function RecentActivity() {
 
   if (isLoading) {
     return (
-      <Card className={theme === "light" ? "bg-[#FEF8E8] border-[#302A36]/20 animate-pulse" : "bg-gray-900/50 border-[#00D4FF]/20 animate-pulse"}>
-        <CardContent className="p-6">
-          <div className={theme === "light" ? "h-64 bg-[#FEF8E8] rounded" : "h-64 bg-gray-800/50 rounded"}></div>
+      <Card className={cn(
+        "animate-pulse transition-all duration-200",
+        theme === "light" 
+          ? "bg-[#FEF8E8] border-[#302A36]/20" 
+          : "bg-gray-900/50 border-[#00D4FF]/20"
+      )}>
+        <CardContent className="p-4 md:p-6">
+          <div className={cn(
+            "h-48 md:h-64 rounded",
+            theme === "light" ? "bg-[#302A36]/10" : "bg-gray-800/50"
+          )}></div>
         </CardContent>
       </Card>
     );
   }
 
   return (
-    <Card className={theme === "light" ? "bg-[#FEF8E8] border-[#302A36]/20" : "bg-[#302A36] border-[#00D4FF]/20"}>
-      <CardHeader>
-        <CardTitle className={theme === "light" ? "text-xl font-semibold text-[#302A36] font-heading" : "text-xl font-semibold text-[#D0FF5F] font-heading"}>
+    <Card className={cn(
+      "transition-all duration-200 transform hover:scale-[1.01] hover:shadow-lg",
+      theme === "light" 
+        ? "bg-[#FEF8E8] border-[#302A36]/20" 
+        : "bg-[#302A36] border-[#00D4FF]/20"
+    )}>
+      <CardHeader className="pb-3 md:pb-6">
+        <CardTitle className={cn(
+          "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
+          theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+        )}>
           Recent Activity
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           {activities.length === 0 ? (
-            <div className={theme === "light" ? "text-center py-8 text-[#302A36]" : "text-center py-8 text-[#FEF8E8]"}>
-              <p>No recent activity found.</p>
-              <p className="text-sm mt-2">Start contributing to see your activity here!</p>
+            <div className={cn(
+              "text-center py-6 md:py-8 transition-colors duration-200",
+              theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+            )}>
+              <p className="text-base md:text-lg font-medium mb-2">No recent activity found.</p>
+              <p className="text-xs md:text-sm opacity-75">Start contributing to see your activity here!</p>
             </div>
           ) : (
-            activities.map((activity) => (
+            activities.map((activity, index) => (
               <div
                 key={activity.id}
-                className={theme === "light"
-                  ? "flex items-center space-x-4 p-4 bg-[#FEF8E8] rounded-lg border border-[#302A36]/20"
-                  : "flex items-center space-x-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50"}
+                className={cn(
+                  "flex items-center space-x-3 md:space-x-4 p-3 md:p-4 rounded-lg border transition-all duration-200 transform hover:scale-[1.02] hover:shadow-md",
+                  theme === "light"
+                    ? "bg-[#FEF8E8] border-[#302A36]/20 hover:bg-[#302A36]/5 hover:border-[#302A36]/30"
+                    : "bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600/50"
+                )}
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animation: 'fadeInUp 0.5s ease-out forwards'
+                }}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${getActivityColor(activity.type)}`}>
-                  <span className="text-xl">{getActivityIcon(activity.type)}</span>
+                <div className={cn(
+                  "w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-200 transform hover:scale-110",
+                  getActivityColor(activity.type)
+                )}>
+                  <span className="text-lg md:text-xl">{getActivityIcon(activity.type)}</span>
                 </div>
-                <div className="flex-1">
-                  <p className="font-medium">{activity.description}</p>
-                  <p className={theme === "light" ? "text-sm text-[#302A36]" : "text-sm text-[#A5A5A5]"}>
+                <div className="flex-1 min-w-0">
+                  <p className={cn(
+                    "font-medium text-sm md:text-base transition-colors duration-200 truncate",
+                    theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+                  )}>
+                    {activity.description}
+                  </p>
+                  <p className={cn(
+                    "text-xs md:text-sm transition-colors duration-200",
+                    theme === "light" ? "text-[#302A36]/70" : "text-[#A5A5A5]"
+                  )}>
                     {formatTimeAgo(activity.createdAt)} • +{activity.points} point{activity.points !== 1 ? 's' : ''}
                   </p>
                 </div>
-                <div className="text-green-400">
-                  <CheckCircle className="h-5 w-5" />
+                <div className="text-green-400 transition-all duration-200 transform hover:scale-110 flex-shrink-0">
+                  <CheckCircle className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
               </div>
             ))

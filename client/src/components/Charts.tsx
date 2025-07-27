@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTheme } from "@/hooks/useTheme";
+import { cn } from "@/lib/utils";
 
 declare global {
   interface Window {
@@ -12,6 +14,7 @@ interface ChartsProps {
 }
 
 export default function Charts({ showDetailed = false }: ChartsProps) {
+  const { theme } = useTheme();
   const trendChartRef = useRef<HTMLCanvasElement>(null);
   const typesChartRef = useRef<HTMLCanvasElement>(null);
   const detailedChartRef = useRef<HTMLCanvasElement>(null);
@@ -28,7 +31,7 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
     return () => {
       document.head.removeChild(script);
     };
-  }, []);
+  }, [theme]);
 
   const initCharts = () => {
     if (!window.Chart) return;
@@ -54,25 +57,34 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
           plugins: {
             legend: {
               labels: {
-                color: '#FFFFFF'
+                color: theme === "light" ? '#302A36' : '#FFFFFF',
+                font: {
+                  size: window.innerWidth < 768 ? 10 : 12
+                }
               }
             }
           },
           scales: {
             y: {
               ticks: {
-                color: '#A5A5A5'
+                color: theme === "light" ? '#302A36' : '#A5A5A5',
+                font: {
+                  size: window.innerWidth < 768 ? 10 : 12
+                }
               },
               grid: {
-                color: 'rgba(165, 165, 165, 0.1)'
+                color: theme === "light" ? 'rgba(48, 42, 54, 0.1)' : 'rgba(165, 165, 165, 0.1)'
               }
             },
             x: {
               ticks: {
-                color: '#A5A5A5'
+                color: theme === "light" ? '#302A36' : '#A5A5A5',
+                font: {
+                  size: window.innerWidth < 768 ? 10 : 12
+                }
               },
               grid: {
-                color: 'rgba(165, 165, 165, 0.1)'
+                color: theme === "light" ? 'rgba(48, 42, 54, 0.1)' : 'rgba(165, 165, 165, 0.1)'
               }
             }
           }
@@ -104,8 +116,11 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
             legend: {
               position: 'bottom',
               labels: {
-                color: '#FFFFFF',
-                padding: 20
+                color: theme === "light" ? '#302A36' : '#FFFFFF',
+                font: {
+                  size: window.innerWidth < 768 ? 10 : 12
+                },
+                padding: window.innerWidth < 768 ? 10 : 15
               }
             }
           }
@@ -113,7 +128,7 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
       });
     }
 
-    // Detailed analytics chart
+    // Detailed comparison chart
     if (detailedChartRef.current && showDetailed) {
       new window.Chart(detailedChartRef.current, {
         type: 'bar',
@@ -139,25 +154,34 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
           plugins: {
             legend: {
               labels: {
-                color: '#FFFFFF'
+                color: theme === "light" ? '#302A36' : '#FFFFFF',
+                font: {
+                  size: window.innerWidth < 768 ? 10 : 12
+                }
               }
             }
           },
           scales: {
             y: {
               ticks: {
-                color: '#A5A5A5'
+                color: theme === "light" ? '#302A36' : '#A5A5A5',
+                font: {
+                  size: window.innerWidth < 768 ? 10 : 12
+                }
               },
               grid: {
-                color: 'rgba(165, 165, 165, 0.1)'
+                color: theme === "light" ? 'rgba(48, 42, 54, 0.1)' : 'rgba(165, 165, 165, 0.1)'
               }
             },
             x: {
               ticks: {
-                color: '#A5A5A5'
+                color: theme === "light" ? '#302A36' : '#A5A5A5',
+                font: {
+                  size: window.innerWidth < 768 ? 10 : 12
+                }
               },
               grid: {
-                color: 'rgba(165, 165, 165, 0.1)'
+                color: theme === "light" ? 'rgba(48, 42, 54, 0.1)' : 'rgba(165, 165, 165, 0.1)'
               }
             }
           }
@@ -171,30 +195,46 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
       {/* Contribution Trend Chart */}
-      <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading ">
+      <Card className={cn(
+        "backdrop-blur-md transition-all duration-200 transform hover:scale-[1.01] hover:shadow-lg",
+        theme === "light" 
+          ? "bg-[#FEF8E8] border-[#00D4FF]/20" 
+          : "bg-[#302A36] border-[#00D4FF]/20"
+      )}>
+        <CardHeader className="pb-3 md:pb-6">
+          <CardTitle className={cn(
+            "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
+            theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+          )}>
             Your Contribution Trend
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-64">
+          <div className="h-48 md:h-64">
             <canvas ref={trendChartRef}></canvas>
           </div>
         </CardContent>
       </Card>
 
       {/* Contribution Types Chart */}
-      <Card className="bg-[#] backdrop-blur-md border-[#7B2CBF]/20">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold text-[#D0FF5F] font-heading">
+      <Card className={cn(
+        "backdrop-blur-md transition-all duration-200 transform hover:scale-[1.01] hover:shadow-lg",
+        theme === "light" 
+          ? "bg-[#FEF8E8] border-[#7B2CBF]/20" 
+          : "bg-[#302A36] border-[#7B2CBF]/20"
+      )}>
+        <CardHeader className="pb-3 md:pb-6">
+          <CardTitle className={cn(
+            "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
+            theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+          )}>
             Contribution Types
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-64">
+          <div className="h-48 md:h-64">
             <canvas ref={typesChartRef}></canvas>
           </div>
         </CardContent>

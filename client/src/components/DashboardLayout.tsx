@@ -6,6 +6,7 @@ import ContributionForm from "./ContributionForm";
 import Leaderboard from "./Leaderboard";
 import Analytics from "./Analytics";
 import { useTheme } from "@/hooks/useTheme";
+import { cn } from "@/lib/utils";
 
 export type Section = 'dashboard' | 'contributions' | 'leaderboard' | 'analytics';
 
@@ -33,7 +34,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }, []);
 
   const renderContent = () => {
-  
     switch (activeSection) {
       case 'dashboard':
         return <DashboardStats />;
@@ -51,25 +51,29 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <SectionContext.Provider value={{ activeSection, setActiveSection }}>
       <div
-        className={
+        className={cn(
+          "min-h-screen transition-colors duration-200",
           theme === "light"
-            ? "min-h-screen bg-[#FEF8E8] text-[#302A36]"
-            : "min-h-screen bg-[#302A36] text-white"
-        }
+            ? "bg-[#FEF8E8] text-[#302A36]"
+            : "bg-[#302A36] text-white"
+        )}
       >
         <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
          
-        <div className="flex pt-16">
+        <div className="flex pt-16 min-h-screen">
           <Sidebar
             activeSection={activeSection}
             onSectionChange={setActiveSection}
             isOpen={sidebarOpen}
             onClose={() => setSidebarOpen(false)}
           />
-          <main className="flex-1 p-6 space-y-6 md:ml-0 ml-0">
-            {renderContent()}
+          <main className="flex-1 p-3 md:p-6 space-y-4 md:space-y-6 overflow-x-hidden">
+            <div className="max-w-full">
+              {renderContent()}
+            </div>
           </main>
         </div>
+        
         {/* Mobile Sidebar Overlay */}
         {sidebarOpen && (
           <div

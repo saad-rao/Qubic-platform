@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useWallet } from "@/hooks/useWallet";
+import { useTheme } from "@/hooks/useTheme";
+import { cn } from "@/lib/utils";
 import { apiRequest } from "@/lib/queryClient";
 import { CheckCircle, Info, Loader2 } from "lucide-react";
 
@@ -29,6 +31,7 @@ export default function ContributionForm() {
   const [urlValid, setUrlValid] = useState(false);
   
   const { user, isConnected } = useWallet();
+  const { theme } = useTheme();
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -103,30 +106,62 @@ export default function ContributionForm() {
   ];
 
   return (
-    <div className="space-y-6">
-      <Card className="bg-[#302A36] backdrop-blur-md border-[#00D4FF]/20">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-[#D0FF5F] font-heading">
+    <div className="space-y-4 md:space-y-6">
+      <Card className={cn(
+        "backdrop-blur-md transition-all duration-200 transform hover:scale-[1.01] hover:shadow-lg",
+        theme === "light" 
+          ? "bg-[#FEF8E8] border-[#302A36]/20" 
+          : "bg-[#302A36] border-[#00D4FF]/20"
+      )}>
+        <CardHeader className="pb-3 md:pb-6">
+          <CardTitle className={cn(
+            "text-xl md:text-2xl font-bold font-heading transition-colors duration-200",
+            theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+          )}>
             Submit New Contribution
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             {/* Contribution Type */}
-            <div className="space-y-2 text-[FEF8E8]">
-              <Label htmlFor="type">Contribution Type</Label>
+            <div className="space-y-2">
+              <Label htmlFor="type" className={cn(
+                "text-sm md:text-base transition-colors duration-200",
+                theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+              )}>
+                Contribution Type
+              </Label>
               <Select
                 value={formData.type}
                 onValueChange={(value: ContributionType) => 
                   setFormData({ ...formData, type: value })
                 }
               >
-                <SelectTrigger className="w-full bg-[#302A36] border-gray-600 text-white focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF]">
+                <SelectTrigger className={cn(
+                  "w-full focus:ring-1 transition-all duration-200",
+                  theme === "light"
+                    ? "bg-[#FEF8E8] border-[#302A36]/30 text-[#302A36] focus:border-[#00D4FF] focus:ring-[#00D4FF]"
+                    : "bg-[#302A36] border-gray-600 text-white focus:border-[#00D4FF] focus:ring-[#00D4FF]"
+                )}>
                   <SelectValue placeholder="Select contribution type" />
                 </SelectTrigger>
-                <SelectContent className="bg-gray-800 border-gray-600">
+                <SelectContent className={cn(
+                  "transition-all duration-200",
+                  theme === "light"
+                    ? "bg-[#FEF8E8] border-[#302A36]/30"
+                    : "bg-gray-800 border-gray-600"
+                )}>
                   {contributionTypes.map((type) => (
-                    <SelectItem key={type.value} value={type.value} className="text-white hover:bg-gray-700">
+                    <SelectItem 
+                      key={type.value} 
+                      value={type.value} 
+                      className={cn(
+                        "transition-colors duration-200",
+                        theme === "light"
+                          ? "text-[#302A36] hover:bg-[#302A36]/10"
+                          : "text-white hover:bg-gray-700"
+                      )}
+                    >
                       {type.label}
                     </SelectItem>
                   ))}
@@ -135,8 +170,13 @@ export default function ContributionForm() {
             </div>
 
             {/* URL Input */}
-            <div className="space-y-2 text-[FEF8E8] ">
-              <Label htmlFor="url">Contribution URL</Label>
+            <div className="space-y-2">
+              <Label htmlFor="url" className={cn(
+                "text-sm md:text-base transition-colors duration-200",
+                theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+              )}>
+                Contribution URL
+              </Label>
               <div className="relative">
                 <Input
                   id="url"
@@ -144,29 +184,47 @@ export default function ContributionForm() {
                   placeholder="https://twitter.com/your-post or https://github.com/your-commit"
                   value={formData.url}
                   onChange={(e) => handleUrlChange(e.target.value)}
-                  className="w-full bg-[#302A36] border-gray-600 text-white focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF] pr-10"
+                  className={cn(
+                    "w-full pr-10 focus:ring-1 transition-all duration-200",
+                    theme === "light"
+                      ? "bg-[#FEF8E8] border-[#302A36]/30 text-[#302A36] focus:border-[#00D4FF] focus:ring-[#00D4FF]"
+                      : "bg-[#302A36] border-gray-600 text-white focus:border-[#00D4FF] focus:ring-[#00D4FF]"
+                  )}
                 />
                 {urlValid && (
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-400" />
                   </div>
                 )}
               </div>
-              <p className="text-sm text-[#FEF8E8]">
+              <p className={cn(
+                "text-xs md:text-sm transition-colors duration-200",
+                theme === "light" ? "text-[#302A36]/70" : "text-[#FEF8E8]"
+              )}>
                 Paste the URL of your contribution (Twitter post, GitHub commit, etc.)
               </p>
             </div>
 
             {/* Description */}
-            <div className="space-y-2 text-[FEF8E8]">
-              <Label htmlFor="description">Description (Optional)</Label>
+            <div className="space-y-2">
+              <Label htmlFor="description" className={cn(
+                "text-sm md:text-base transition-colors duration-200",
+                theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+              )}>
+                Description (Optional)
+              </Label>
               <Textarea
                 id="description"
                 rows={3}
                 placeholder="Brief description of your contribution..."
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full bg-[#302A36] border-gray-600 text-[#FEF8E8] focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF] resize-none"
+                className={cn(
+                  "w-full resize-none focus:ring-1 transition-all duration-200",
+                  theme === "light"
+                    ? "bg-[#FEF8E8] border-[#302A36]/30 text-[#302A36] focus:border-[#00D4FF] focus:ring-[#00D4FF]"
+                    : "bg-[#302A36] border-gray-600 text-[#FEF8E8] focus:border-[#00D4FF] focus:ring-[#00D4FF]"
+                )}
               />
             </div>
 
@@ -174,9 +232,14 @@ export default function ContributionForm() {
             <Button
               type="submit"
               disabled={!isConnected || contributionMutation.isPending || !formData.type || !formData.url}
-              className="  w-full group relative inline-flex items-center justify-center px-6 py-3 font-bold text-[#FEF8E8] bg-gradient-to-r from-[#302A36] via-[#6e7d49] to-[#D0FF5F] rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#D0FF5F]/40 focus:outline-none focus:ring-4 focus:ring-[#D0FF5F]/50"
+              className={cn(
+                "w-full group relative inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 font-bold rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4",
+                theme === "light"
+                  ? "text-[#302A36] bg-gradient-to-r from-[#FEF8E8] via-[#e6e0d0] to-[#e6e0d0] hover:shadow-[#302A36]/20 focus:ring-[#302A36]/30"
+                  : "text-[#FEF8E8] bg-gradient-to-r from-[#302A36] via-[#6e7d49] to-[#D0FF5F] hover:shadow-[#D0FF5F]/40 focus:ring-[#D0FF5F]/50"
+              )}
             >
-             
+              <span className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
               {contributionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -191,13 +254,24 @@ export default function ContributionForm() {
       </Card>
 
       {/* Validation Rules */}
-      <Card className="bg-[#302A36] border-gray-700">
-        <CardContent className="p-4">
-          <h4 className="font-semibold mb-2 text-[#D0FF5F] flex items-center font-heading">
-            <Info className="h-4 w-4 mr-1 mb-1 " />
+      <Card className={cn(
+        "transition-all duration-200 transform hover:scale-[1.01] hover:shadow-lg",
+        theme === "light" 
+          ? "bg-[#FEF8E8] border-[#302A36]/20" 
+          : "bg-[#302A36] border-gray-700"
+      )}>
+        <CardContent className="p-3 md:p-4">
+          <h4 className={cn(
+            "font-semibold mb-2 flex items-center font-heading transition-colors duration-200 text-sm md:text-base",
+            theme === "light" ? "text-[#FEF8E8]" : "text-[#D0FF5F]"
+          )}>
+            <Info className="h-4 w-4 mr-1 mb-1" />
             Validation Rules
           </h4>
-          <ul className="text-sm text-[#FEF8E8] space-y-1">
+          <ul className={cn(
+            "text-xs md:text-sm space-y-1 transition-colors duration-200",
+            theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
+          )}>
             <li>• URLs must be public and accessible</li>
             <li>• Twitter posts must mention @QubicOfficial or #Qubic</li>
             <li>• GitHub commits must be in Qubic-related repositories</li>

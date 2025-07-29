@@ -15,6 +15,7 @@
 .font-heading {
   font-family: var(--font-francy-bold);
   font-weight: bold;
+  letter-spacing: 0.05em;
 }
 
 /* Class for regular text using Glacial Indifference */

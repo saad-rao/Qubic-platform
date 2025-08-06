@@ -5,6 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Trophy } from "lucide-react";
 import type { LeaderboardEntry } from "@/types/dashboard";
 import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 
 export default function Leaderboard() {
@@ -12,6 +13,7 @@ export default function Leaderboard() {
     queryKey: ['/api/leaderboard'],
   });
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const isLight = theme === "light";
   const leaderboard = leaderboardData?.leaderboard || [];
 
@@ -41,10 +43,10 @@ export default function Leaderboard() {
     const date = new Date(dateString);
     const now = new Date();
     const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60));
-    if (diffInHours < 1) return 'Just now';
-    if (diffInHours < 24) return `${diffInHours} hours ago`;
+    if (diffInHours < 1) return t('leaderboard.just.now');
+    if (diffInHours < 24) return `${diffInHours} ${t('leaderboard.hours.ago')}`;
     const diffInDays = Math.floor(diffInHours / 24);
-    return `${diffInDays} days ago`;
+    return `${diffInDays} ${t('leaderboard.days.ago')}`;
   };
 
   if (isLoading) {
@@ -78,7 +80,7 @@ export default function Leaderboard() {
               isLight ? "text-[#302A36]" : "text-[#D0FF5F]"
             )}>
               <Trophy className="h-5 w-5 md:h-6 md:w-6 mr-2" />
-              Ambassador Leaderboard
+              {t('leaderboard.title')}
             </CardTitle>
             <div className="flex space-x-2">
               <Button className={cn(
@@ -87,7 +89,7 @@ export default function Leaderboard() {
                   ? "bg-[#302A36]/10 text-[#302A36] border border-[#302A36]/30 hover:bg-[#302A36]/20" 
                   : "bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/30 hover:bg-[#00D4FF]/30"
               )}>
-                This Week
+                {t('leaderboard.this.week')}
               </Button>
               <Button variant="outline" className={cn(
                 "px-3 md:px-4 py-2 text-sm md:text-base",
@@ -95,7 +97,7 @@ export default function Leaderboard() {
                   ? "bg-[#FEF8E8] text-[#302A36] border-[#302A36]/30 hover:bg-[#e6e0d0]" 
                   : "bg-gray-800 text-[#A5A5A5] border-gray-600 hover:bg-gray-700"
               )}>
-                All Time
+                {t('leaderboard.all.time')}
               </Button>
             </div>
           </div>
@@ -111,23 +113,23 @@ export default function Leaderboard() {
                   <TableHead className={cn(
                     "text-sm md:text-base font-medium px-3 md:px-6",
                     isLight ? "text-[#302A36]" : "text-[#FEFBEB]"
-                  )}>Rank</TableHead>
+                  )}>{t('rank.position')}</TableHead>
                   <TableHead className={cn(
                     "text-sm md:text-base font-medium px-3 md:px-6",
                     isLight ? "text-[#302A36]" : "text-[#FEFBEB]"
-                  )}>Ambassador</TableHead>
+                  )}>{t('user')}</TableHead>
                   <TableHead className={cn(
                     "text-sm md:text-base font-medium px-3 md:px-6",
                     isLight ? "text-[#302A36]" : "text-[#FEFBEB]"
-                  )}>Points</TableHead>
+                  )}>{t('points')}</TableHead>
                   <TableHead className={cn(
                     "text-sm md:text-base font-medium px-3 md:px-6",
                     isLight ? "text-[#302A36]" : "text-[#FEFBEB]"
-                  )}>Contributions</TableHead>
+                  )}>{t('contributions')}</TableHead>
                   <TableHead className={cn(
                     "text-sm md:text-base font-medium px-3 md:px-6",
                     isLight ? "text-[#302A36]" : "text-[#FEFBEB]"
-                  )}>Last Activity</TableHead>
+                  )}>{t('leaderboard.last.activity')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -172,9 +174,9 @@ export default function Leaderboard() {
                             "text-xs md:text-sm",
                             isLight ? "text-[#302A36]" : "text-[#A5A5A5]"
                           )}>
-                            {user.rank === 1 ? 'Top Contributor' : 
-                             user.rank === 2 ? 'Active Contributor' : 
-                             user.rank === 3 ? 'Rising Star' : 'Ambassador'}
+                            {user.rank === 1 ? t('leaderboard.top.contributor') : 
+                             user.rank === 2 ? t('leaderboard.active.contributor') : 
+                             user.rank === 3 ? t('leaderboard.rising.star') : t('leaderboard.ambassador')}
                           </p>
                         </div>
                       </div>

@@ -205,7 +205,7 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
       )}>
         <CardHeader className="pb-3 md:pb-6">
           <CardTitle className={cn(
-            "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
+            "text-lg md:text-xl  font-heading transition-colors duration-200",
             theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
           )}>
             Your Contribution Trend
@@ -227,7 +227,7 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
       )}>
         <CardHeader className="pb-3 md:pb-6">
           <CardTitle className={cn(
-            "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
+            "text-lg md:text-xl  font-heading transition-colors duration-200",
             theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
           )}>
             Contribution Types

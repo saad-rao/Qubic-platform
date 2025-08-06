@@ -5,14 +5,14 @@ import Charts from "./Charts";
 import RecentActivity from "./RecentActivity";
 import { useWallet } from "@/hooks/useWallet";
 import { useTheme } from "@/hooks/useTheme";
-// import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 import type { DashboardStats } from "@/types/dashboard";
 
 export default function DashboardStats() {
   const { user } = useWallet();
   const { theme } = useTheme();
-  // const { t } = useLanguage();
+  const { t } = useLanguage();
   
   const { data: statsData, isLoading } = useQuery<{ stats: DashboardStats }>({
     queryKey: [user ? `/api/dashboard/${user.walletAddress}` : '/api/dashboard'],
@@ -62,8 +62,8 @@ export default function DashboardStats() {
                   "text-xs md:text-sm transition-colors duration-200",
                   theme === "light" ? "text-[#FEF8E8]" : "text-[#FEF8E8]"
                 )}>
-                  Total Contributions
-                  {/* {t('total.contributions')} */}
+                  
+                  {t('total.contributions')}
                 </p>
                 <h3 className="text-2xl md:text-3xl font-bold text-[#00D4FF]">
                   {stats?.totalContributions?.toLocaleString() || '0'}
@@ -93,8 +93,8 @@ export default function DashboardStats() {
                   "text-xs md:text-sm transition-colors duration-200",
                   theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
                 )}>
-                  Your Contributions
-                  {/* {t('contributions')} */}
+                  {/* Your Contributions */}
+                  {t('contributions')}
                 </p>
                 <h3 className="text-2xl md:text-3xl font-bold text-[#7B2CBF]">
                   {stats?.userContributions || 0}
@@ -124,8 +124,8 @@ export default function DashboardStats() {
                   "text-xs md:text-sm transition-colors duration-200",
                   theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
                 )}>
-                  Your Rank
-                  {/* {t('rank')} */}
+                  {/* Your Rank */}
+                  {t('rank')}
                 </p>
                 <h3 className="text-2xl md:text-3xl font-bold text-green-400">
                   {stats?.userRank ? `#${stats.userRank}` : 'N/A'}
@@ -155,8 +155,8 @@ export default function DashboardStats() {
                   "text-xs md:text-sm transition-colors duration-200",
                   theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
                 )}>
-                  Total Points
-                  {/* {t('total.points')} */}
+                  {/* Total Points */}
+                  {t('total.points')}
                 </p>
                 <h3 className="text-2xl md:text-3xl font-bold text-yellow-400">
                   {stats?.totalPoints || 0}

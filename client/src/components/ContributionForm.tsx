@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useWallet } from "@/hooks/useWallet";
 import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 import { apiRequest } from "@/lib/queryClient";
 import { CheckCircle, Info, Loader2 } from "lucide-react";
@@ -32,6 +33,7 @@ export default function ContributionForm() {
   
   const { user, isConnected } = useWallet();
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -118,7 +120,7 @@ export default function ContributionForm() {
             "text-xl md:text-2xl font-bold font-heading transition-colors duration-200",
             theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
           )}>
-            Submit New Contribution
+            {t('contribution.title')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -129,7 +131,7 @@ export default function ContributionForm() {
                 "text-sm md:text-base transition-colors duration-200",
                 theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
               )}>
-                Contribution Type
+                {t('contribution.type')}
               </Label>
               <Select
                 value={formData.type}
@@ -143,7 +145,7 @@ export default function ContributionForm() {
                     ? "bg-[#FEF8E8] border-[#302A36]/30 text-[#302A36] focus:border-[#00D4FF] focus:ring-[#00D4FF]"
                     : "bg-[#302A36] border-gray-600 text-white focus:border-[#00D4FF] focus:ring-[#00D4FF]"
                 )}>
-                  <SelectValue placeholder="Select contribution type" />
+                  <SelectValue placeholder={t('contribution.type')} />
                 </SelectTrigger>
                 <SelectContent className={cn(
                   "transition-all duration-200",
@@ -175,7 +177,7 @@ export default function ContributionForm() {
                 "text-sm md:text-base transition-colors duration-200",
                 theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
               )}>
-                Contribution URL
+                {t('contribution.url.label')}
               </Label>
               <div className="relative">
                 <Input
@@ -243,10 +245,10 @@ export default function ContributionForm() {
               {contributionMutation.isPending ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Processing...
+                  {t('loading')}
                 </>
               ) : (
-                'Submit Contribution'
+                t('submit')
               )}
             </Button>
           </form>
@@ -263,7 +265,7 @@ export default function ContributionForm() {
         <CardContent className="p-3 md:p-4">
           <h4 className={cn(
             "font-semibold mb-2 flex items-center font-heading transition-colors duration-200 text-sm md:text-base",
-            theme === "light" ? "text-[#FEF8E8]" : "text-[#D0FF5F]"
+            theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
           )}>
             <Info className="h-4 w-4 mr-1 mb-1" />
             Validation Rules

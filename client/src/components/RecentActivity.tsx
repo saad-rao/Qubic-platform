@@ -3,12 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useWallet } from "@/hooks/useWallet";
 import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 import type { ContributionActivity } from "@/types/dashboard";
 
 export default function RecentActivity() {
   const { user } = useWallet();
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   const { data: activityData, isLoading } = useQuery<{ activities: ContributionActivity[] }>({
     queryKey: [user ? `/api/activity/${user.walletAddress}` : '/api/activity'],
@@ -41,10 +43,10 @@ export default function RecentActivity() {
     const now = new Date();
     const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60));
     
-    if (diffInHours < 1) return 'Just now';
-    if (diffInHours < 24) return `${diffInHours} hours ago`;
+    if (diffInHours < 1) return t('leaderboard.just.now');
+    if (diffInHours < 24) return `${diffInHours} ${t('leaderboard.hours.ago')}`;
     const diffInDays = Math.floor(diffInHours / 24);
-    return `${diffInDays} days ago`;
+    return `${diffInDays} ${t('leaderboard.days.ago')}`;
   };
 
   if (isLoading) {
@@ -77,7 +79,7 @@ export default function RecentActivity() {
           "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
           theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
         )}>
-          Recent Activity
+          {t('recent.activity.title')}
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -87,8 +89,8 @@ export default function RecentActivity() {
               "text-center py-6 md:py-8 transition-colors duration-200",
               theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
             )}>
-              <p className="text-base md:text-lg font-medium mb-2">No recent activity found.</p>
-              <p className="text-xs md:text-sm opacity-75">Start contributing to see your activity here!</p>
+              <p className="text-base md:text-lg font-medium mb-2">{t('recent.activity.no.activity')}</p>
+              <p className="text-xs md:text-sm opacity-75">{t('recent.activity.start.contributing')}</p>
             </div>
           ) : (
             activities.map((activity, index) => (
@@ -122,7 +124,7 @@ export default function RecentActivity() {
                     "text-xs md:text-sm transition-colors duration-200",
                     theme === "light" ? "text-[#302A36]/70" : "text-[#A5A5A5]"
                   )}>
-                    {formatTimeAgo(activity.createdAt)} • +{activity.points} point{activity.points !== 1 ? 's' : ''}
+                    {formatTimeAgo(activity.createdAt)} • +{activity.points} {activity.points !== 1 ? t('recent.activity.points.plural') : t('recent.activity.points')}
                   </p>
                 </div>
                 <div className="text-green-400 transition-all duration-200 transform hover:scale-110 flex-shrink-0">

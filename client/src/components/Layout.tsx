@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }
     >
       <Header onMenuClick={() => {}} />
-      <main>
+      <main className="pt-16">
         {children}
       </main>
     </div>

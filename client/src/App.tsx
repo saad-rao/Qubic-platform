@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { WalletProvider } from "@/hooks/useWallet";
 import { ThemeProvider } from "@/hooks/useTheme";
+import { LanguageProvider } from "@/hooks/useLanguage";
 
 function ProtectedRoute({ element }: { element: React.ReactElement }) {
   const { isConnected } = useWallet();
@@ -22,27 +23,29 @@ export default function App() {
       <TooltipProvider>
         <div className="dark">
           <Toaster />
-          <ThemeProvider>
-            <WalletProvider>
-              <BrowserRouter>
-                <Routes>
-                  {/* Visitor route: no dashboard layout */}
-                  <Route path="/" element={<Layout><VisitorsView /></Layout>} />
+          <LanguageProvider>
+            <ThemeProvider>
+              <WalletProvider>
+                <BrowserRouter>
+                  <Routes>
+                    {/* Visitor route: no dashboard layout */}
+                    <Route path="/" element={<Layout><VisitorsView /></Layout>} />
 
-                  {/* Dashboard route: uses dashboard layout */}
-                  <Route
-                    path="/dashboard"
-                    element={
-                      <DashboardLayout>
-                        <ProtectedRoute element={<Dashboard />} />
-                      </DashboardLayout>
-                    }
-                  />
-                  {/* Add other routes as needed */}
-                </Routes>
-              </BrowserRouter>
-            </WalletProvider>
-          </ThemeProvider>
+                    {/* Dashboard route: uses dashboard layout */}
+                    <Route
+                      path="/dashboard"
+                      element={
+                        <DashboardLayout>
+                          <ProtectedRoute element={<Dashboard />} />
+                        </DashboardLayout>
+                      }
+                    />
+                    {/* Add other routes as needed */}
+                  </Routes>
+                </BrowserRouter>
+              </WalletProvider>
+            </ThemeProvider>
+          </LanguageProvider>
         </div>
       </TooltipProvider>
     </QueryClientProvider>

@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { BarChart3, PlusCircle, Trophy, TrendingUp, Settings, HelpCircle, X } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/hooks/useLanguage";
 
 type Section = 'dashboard' | 'contributions' | 'leaderboard' | 'analytics';
 
@@ -11,21 +12,22 @@ interface SidebarProps {
   onClose: () => void;
 }
 
-const navItems = [
-  { id: 'dashboard' as Section, label: 'Dashboard', icon: BarChart3 },
-  { id: 'contributions' as Section, label: 'Submit Contribution', icon: PlusCircle },
-  { id: 'leaderboard' as Section, label: 'Leaderboard', icon: Trophy },
-  { id: 'analytics' as Section, label: 'Your Analytics', icon: TrendingUp },
-];
-
-const bottomItems = [
-  { id: 'settings' as Section, label: 'Settings', icon: Settings },
-  { id: 'help' as Section, label: 'Help', icon: HelpCircle },
-];
-
 export default function Sidebar({ activeSection, onSectionChange, isOpen, onClose }: SidebarProps) {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   
+  const navItems = [
+    { id: 'dashboard' as Section, label: t('dashboard'), icon: BarChart3 },
+    { id: 'contributions' as Section, label: t('submit.contribution'), icon: PlusCircle },
+    { id: 'leaderboard' as Section, label: t('leaderboard'), icon: Trophy },
+    { id: 'analytics' as Section, label: t('your.analytics'), icon: TrendingUp },
+  ];
+
+  const bottomItems = [
+    { id: 'settings' as Section, label: t('settings'), icon: Settings },
+    { id: 'help' as Section, label: t('help'), icon: HelpCircle },
+  ];
+
   const handleItemClick = (sectionId: Section) => {
     onSectionChange(sectionId);
     if (window.innerWidth < 768) {

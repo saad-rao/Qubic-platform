@@ -2,11 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { TrendingUp } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 import Charts from "./Charts";
 
 export default function Analytics() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   
   const performanceMetrics = [
     { label: 'Weekly Average', value: '3.2 points', color: 'text-[#00D4FF]' },
@@ -29,13 +31,13 @@ export default function Analytics() {
           "text-2xl md:text-3xl font-bold font-heading transition-colors duration-200",
           theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
         )}>
-          Your Analytics
+          {t('analytics.title')}
         </h2>
         <p className={cn(
           "text-base md:text-lg mt-2 transition-colors duration-200",
           theme === "light" ? "text-[#302A36]/80" : "text-[#FEF8E8]/80"
         )}>
-          Track your contribution performance and progress
+          {t('analytics.description')}
         </p>
       </div>
       

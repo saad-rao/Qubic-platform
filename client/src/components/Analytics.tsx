@@ -11,10 +11,10 @@ export default function Analytics() {
   const { t } = useLanguage();
   
   const performanceMetrics = [
-    { label: 'Weekly Average', value: '3.2 points', color: 'text-[#00D4FF]' },
-    { label: 'Best Week', value: '8 points', color: 'text-green-400' },
-    { label: 'Consistency Score', value: '85%', color: 'text-[#7B2CBF]' },
-    { label: 'Total Streak', value: '12 days', color: 'text-yellow-400' },
+    { label: t('weekly.average'), value: `3.2 ${t('points.unit')}`, color: 'text-[#00D4FF]' },
+    { label: t('best.week'), value: `8 ${t('points.unit')}`, color: 'text-green-400' },
+    { label: t('consistency.score'), value: '85%', color: 'text-[#7B2CBF]' },
+    { label: t('total.streak'), value: `12 ${t('days.unit')}`, color: 'text-yellow-400' },
   ];
 
   const monthlyProgress = {
@@ -54,7 +54,7 @@ export default function Analytics() {
               "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
               theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
             )}>
-              Your Performance
+              {t('your.performance')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -88,7 +88,7 @@ export default function Analytics() {
               "text-lg md:text-xl font-semibold font-heading transition-colors duration-200",
               theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
             )}>
-              Monthly Goal
+              {t('monthly.goal')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -98,7 +98,7 @@ export default function Analytics() {
                   "text-sm md:text-base transition-colors duration-200",
                   theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
                 )}>
-                  Target: 50 points
+                  {t('target')}: 50 {t('points.unit')}
                 </span>
                 <span className="font-bold text-sm md:text-base text-[#7B2CBF]">
                   {monthlyProgress.current}/{monthlyProgress.target}
@@ -117,7 +117,7 @@ export default function Analytics() {
                 "text-xs md:text-sm transition-colors duration-200",
                 theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
               )}>
-                {monthlyProgress.target - monthlyProgress.current} points to go • 8 days remaining
+                {monthlyProgress.target - monthlyProgress.current} {t('points.to.go')} • 8 {t('days.remaining')}
               </div>
             </div>
           </CardContent>
@@ -137,7 +137,7 @@ export default function Analytics() {
             theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
           )}>
             <TrendingUp className="h-4 w-4 md:h-5 md:w-5 mr-2" />
-            Detailed Analytics
+            {t('detailed.analytics')}
           </CardTitle>
         </CardHeader>
         <CardContent>

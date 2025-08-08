@@ -183,7 +183,7 @@ export default function ContributionForm() {
                 <Input
                   id="url"
                   type="url"
-                  placeholder="https://twitter.com/your-post or https://github.com/your-commit"
+                  placeholder={t('url.paste.description')}
                   value={formData.url}
                   onChange={(e) => handleUrlChange(e.target.value)}
                   className={cn(
@@ -203,7 +203,7 @@ export default function ContributionForm() {
                 "text-xs md:text-sm transition-colors duration-200",
                 theme === "light" ? "text-[#302A36]/70" : "text-[#FEF8E8]"
               )}>
-                Paste the URL of your contribution (Twitter post, GitHub commit, etc.)
+                {t('url.paste.description')}
               </p>
             </div>
 
@@ -213,12 +213,12 @@ export default function ContributionForm() {
                 "text-sm md:text-base transition-colors duration-200",
                 theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
               )}>
-                Description (Optional)
+                {t('description.optional')}
               </Label>
               <Textarea
                 id="description"
                 rows={3}
-                placeholder="Brief description of your contribution..."
+                placeholder={t('brief.description')}
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 className={cn(
@@ -268,17 +268,17 @@ export default function ContributionForm() {
             theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
           )}>
             <Info className="h-4 w-4 mr-1 mb-1" />
-            Validation Rules
+            {t('validation.rules')}
           </h4>
           <ul className={cn(
             "text-xs md:text-sm space-y-1 transition-colors duration-200",
             theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
           )}>
-            <li>• URLs must be public and accessible</li>
-            <li>• Twitter posts must mention @QubicOfficial or #Qubic</li>
-            <li>• GitHub commits must be in Qubic-related repositories</li>
-            <li>• Duplicate submissions will be rejected</li>
-            <li>• Each contribution type has a cooldown period</li>
+            <li>• {t('validation.rule.1')}</li>
+            <li>• {t('validation.rule.2')}</li>
+            <li>• {t('validation.rule.3')}</li>
+            <li>• {t('validation.rule.4')}</li>
+            <li>• {t('validation.rule.5')}</li>
           </ul>
         </CardContent>
       </Card>

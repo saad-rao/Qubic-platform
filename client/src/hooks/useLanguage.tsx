@@ -194,6 +194,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': 'Start contributing to see your activity here!',
       'recent.activity.points': 'point',
       'recent.activity.points.plural': 'points',
+      
+      // Dashboard Stats
+      'from.last.week': 'from last week',
+      'this.week': 'this week',
+      'up.positions': 'Up',
+      'positions': 'positions',
+      'points.this.week': 'points this week',
+      
+      // Charts
+      'your.contribution.trend': 'Your Contribution Trend',
+      'contribution.types': 'Contribution Types',
+      'your.points': 'Your Points',
+      'community.average': 'Community Average',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Paste the URL of your contribution (Twitter post, GitHub commit, etc.)',
+      'description.optional': 'Description (Optional)',
+      'brief.description': 'Brief description of your contribution...',
+      'validation.rules': 'Validation Rules',
+      'validation.rule.1': 'URLs must be public and accessible',
+      'validation.rule.2': 'Twitter posts must mention @QubicOfficial or #Qubic',
+      'validation.rule.3': 'GitHub commits must be in Qubic-related repositories',
+      'validation.rule.4': 'Duplicate submissions will be rejected',
+      'validation.rule.5': 'Each contribution type has a cooldown period',
+      
+      // Analytics
+      'your.performance': 'Your Performance',
+      'weekly.average': 'Weekly Average',
+      'best.week': 'Best Week',
+      'consistency.score': 'Consistency Score',
+      'total.streak': 'Total Streak',
+      'monthly.goal': 'Monthly Goal',
+      'target': 'Target',
+      'points.to.go': 'points to go',
+      'days.remaining': 'days remaining',
+      'detailed.analytics': 'Detailed Analytics',
+      'points.unit': 'points',
+      'days.unit': 'days',
     },
     de: {
       'ambassador.platform': 'Botschafter-Plattform',
@@ -305,6 +344,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': 'Beginnen Sie mit Beiträgen, um Ihre Aktivität hier zu sehen!',
       'recent.activity.points': 'Punkt',
       'recent.activity.points.plural': 'Punkte',
+      
+      // Dashboard Stats
+      'from.last.week': 'von letzter Woche',
+      'this.week': 'diese Woche',
+      'up.positions': 'Auf',
+      'positions': 'Positionen',
+      'points.this.week': 'Punkte diese Woche',
+      
+      // Charts
+      'your.contribution.trend': 'Ihr Beitragstrend',
+      'contribution.types': 'Beitragstypen',
+      'your.points': 'Ihre Punkte',
+      'community.average': 'Community-Durchschnitt',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Fügen Sie die URL Ihres Beitrags ein (Twitter-Post, GitHub-Commit, etc.)',
+      'description.optional': 'Beschreibung (Optional)',
+      'brief.description': 'Kurze Beschreibung Ihres Beitrags...',
+      'validation.rules': 'Validierungsregeln',
+      'validation.rule.1': 'URLs müssen öffentlich und zugänglich sein',
+      'validation.rule.2': 'Twitter-Posts müssen @QubicOfficial oder #Qubic erwähnen',
+      'validation.rule.3': 'GitHub-Commits müssen in Qubic-bezogenen Repositories sein',
+      'validation.rule.4': 'Doppelte Einreichungen werden abgelehnt',
+      'validation.rule.5': 'Jeder Beitragstyp hat eine Abkühlzeit',
+      
+      // Analytics
+      'your.performance': 'Ihre Leistung',
+      'weekly.average': 'Wöchentlicher Durchschnitt',
+      'best.week': 'Beste Woche',
+      'consistency.score': 'Konsistenz-Score',
+      'total.streak': 'Gesamtsträhne',
+      'monthly.goal': 'Monatsziel',
+      'target': 'Ziel',
+      'points.to.go': 'Punkte zu gehen',
+      'days.remaining': 'Tage verbleibend',
+      'detailed.analytics': 'Detaillierte Analysen',
+      'points.unit': 'Punkte',
+      'days.unit': 'Tage',
     },
     es: {
       'ambassador.platform': 'Plataforma de Embajadores',
@@ -416,6 +494,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': '¡Comienza a contribuir para ver tu actividad aquí!',
       'recent.activity.points': 'punto',
       'recent.activity.points.plural': 'puntos',
+      
+      // Dashboard Stats
+      'from.last.week': 'desde la semana pasada',
+      'this.week': 'esta semana',
+      'up.positions': 'Subió',
+      'positions': 'posiciones',
+      'points.this.week': 'puntos esta semana',
+      
+      // Charts
+      'your.contribution.trend': 'Tu Tendencia de Contribuciones',
+      'contribution.types': 'Tipos de Contribución',
+      'your.points': 'Tus Puntos',
+      'community.average': 'Promedio de la Comunidad',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Pega la URL de tu contribución (post de Twitter, commit de GitHub, etc.)',
+      'description.optional': 'Descripción (Opcional)',
+      'brief.description': 'Breve descripción de tu contribución...',
+      'validation.rules': 'Reglas de Validación',
+      'validation.rule.1': 'Las URLs deben ser públicas y accesibles',
+      'validation.rule.2': 'Los posts de Twitter deben mencionar @QubicOfficial o #Qubic',
+      'validation.rule.3': 'Los commits de GitHub deben estar en repositorios relacionados con Qubic',
+      'validation.rule.4': 'Las entregas duplicadas serán rechazadas',
+      'validation.rule.5': 'Cada tipo de contribución tiene un período de enfriamiento',
+      
+      // Analytics
+      'your.performance': 'Tu Rendimiento',
+      'weekly.average': 'Promedio Semanal',
+      'best.week': 'Mejor Semana',
+      'consistency.score': 'Puntuación de Consistencia',
+      'total.streak': 'Racha Total',
+      'monthly.goal': 'Meta Mensual',
+      'target': 'Objetivo',
+      'points.to.go': 'puntos por alcanzar',
+      'days.remaining': 'días restantes',
+      'detailed.analytics': 'Análisis Detallado',
+      'points.unit': 'puntos',
+      'days.unit': 'días',
     },
     fr: {
       'ambassador.platform': 'Plateforme d\'Ambassadeurs',
@@ -527,6 +644,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': 'Commencez à contribuer pour voir votre activité ici !',
       'recent.activity.points': 'point',
       'recent.activity.points.plural': 'points',
+      
+      // Dashboard Stats
+      'from.last.week': 'depuis la semaine dernière',
+      'this.week': 'cette semaine',
+      'up.positions': 'En hausse',
+      'positions': 'positions',
+      'points.this.week': 'points cette semaine',
+      
+      // Charts
+      'your.contribution.trend': 'Votre Tendance de Contributions',
+      'contribution.types': 'Types de Contributions',
+      'your.points': 'Vos Points',
+      'community.average': 'Moyenne de la Communauté',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Collez l\'URL de votre contribution (post Twitter, commit GitHub, etc.)',
+      'description.optional': 'Description (Optionnel)',
+      'brief.description': 'Brève description de votre contribution...',
+      'validation.rules': 'Règles de Validation',
+      'validation.rule.1': 'Les URLs doivent être publiques et accessibles',
+      'validation.rule.2': 'Les posts Twitter doivent mentionner @QubicOfficial ou #Qubic',
+      'validation.rule.3': 'Les commits GitHub doivent être dans des dépôts liés à Qubic',
+      'validation.rule.4': 'Les soumissions en double seront rejetées',
+      'validation.rule.5': 'Chaque type de contribution a une période de récupération',
+      
+      // Analytics
+      'your.performance': 'Vos Performances',
+      'weekly.average': 'Moyenne Hebdomadaire',
+      'best.week': 'Meilleure Semaine',
+      'consistency.score': 'Score de Cohérence',
+      'total.streak': 'Série Totale',
+      'monthly.goal': 'Objectif Mensuel',
+      'target': 'Cible',
+      'points.to.go': 'points à atteindre',
+      'days.remaining': 'jours restants',
+      'detailed.analytics': 'Analyses Détaillées',
+      'points.unit': 'points',
+      'days.unit': 'jours',
     },
     it: {
       'ambassador.platform': 'Piattaforma Ambasciatori',
@@ -638,6 +794,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': 'Inizia a contribuire per vedere la tua attività qui!',
       'recent.activity.points': 'punto',
       'recent.activity.points.plural': 'punti',
+      
+      // Dashboard Stats
+      'from.last.week': 'dalla settimana scorsa',
+      'this.week': 'questa settimana',
+      'up.positions': 'Su di',
+      'positions': 'posizioni',
+      'points.this.week': 'punti questa settimana',
+      
+      // Charts
+      'your.contribution.trend': 'La Tua Tendenza di Contributi',
+      'contribution.types': 'Tipi di Contributi',
+      'your.points': 'I Tuoi Punti',
+      'community.average': 'Media della Comunità',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Incolla l\'URL del tuo contributo (post Twitter, commit GitHub, ecc.)',
+      'description.optional': 'Descrizione (Opzionale)',
+      'brief.description': 'Breve descrizione del tuo contributo...',
+      'validation.rules': 'Regole di Validazione',
+      'validation.rule.1': 'Gli URL devono essere pubblici e accessibili',
+      'validation.rule.2': 'I post Twitter devono menzionare @QubicOfficial o #Qubic',
+      'validation.rule.3': 'I commit GitHub devono essere in repository correlati a Qubic',
+      'validation.rule.4': 'Le sottomissioni duplicate saranno respinte',
+      'validation.rule.5': 'Ogni tipo di contributo ha un periodo di raffreddamento',
+      
+      // Analytics
+      'your.performance': 'Le Tue Prestazioni',
+      'weekly.average': 'Media Settimanale',
+      'best.week': 'Migliore Settimana',
+      'consistency.score': 'Punteggio di Coerenza',
+      'total.streak': 'Striscia Totale',
+      'monthly.goal': 'Obiettivo Mensile',
+      'target': 'Obiettivo',
+      'points.to.go': 'punti da raggiungere',
+      'days.remaining': 'giorni rimanenti',
+      'detailed.analytics': 'Analisi Dettagliate',
+      'points.unit': 'punti',
+      'days.unit': 'giorni',
     },
     nl: {
       'ambassador.platform': 'Ambassadeur Platform',
@@ -749,6 +944,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': 'Begin met bijdragen om je activiteit hier te zien!',
       'recent.activity.points': 'punt',
       'recent.activity.points.plural': 'punten',
+      
+      // Dashboard Stats  
+      'from.last.week': 'van vorige week',
+      'this.week': 'deze week',
+      'up.positions': 'Omhoog',
+      'positions': 'posities',
+      'points.this.week': 'punten deze week',
+      
+      // Charts
+      'your.contribution.trend': 'Jouw Bijdrage Trend',
+      'contribution.types': 'Bijdrage Types',
+      'your.points': 'Jouw Punten',
+      'community.average': 'Community Gemiddelde',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Plak de URL van je bijdrage (Twitter post, GitHub commit, etc.)',
+      'description.optional': 'Beschrijving (Optioneel)',
+      'brief.description': 'Korte beschrijving van je bijdrage...',
+      'validation.rules': 'Validatieregels',
+      'validation.rule.1': 'URLs moeten openbaar en toegankelijk zijn',
+      'validation.rule.2': 'Twitter posts moeten @QubicOfficial of #Qubic vermelden',
+      'validation.rule.3': 'GitHub commits moeten in Qubic-gerelateerde repositories zijn',
+      'validation.rule.4': 'Dubbele inzendingen worden afgewezen',
+      'validation.rule.5': 'Elk bijdragetype heeft een afkoelperiode',
+      
+      // Analytics
+      'your.performance': 'Jouw Prestaties',
+      'weekly.average': 'Wekelijks Gemiddelde',
+      'best.week': 'Beste Week',
+      'consistency.score': 'Consistentie Score',
+      'total.streak': 'Totale Reeks',
+      'monthly.goal': 'Maandelijks Doel',
+      'target': 'Doel',
+      'points.to.go': 'punten te gaan',
+      'days.remaining': 'dagen over',
+      'detailed.analytics': 'Gedetailleerde Analytics',
+      'points.unit': 'punten',
+      'days.unit': 'dagen',
     },
     pt: {
       'ambassador.platform': 'Plataforma de Embaixadores',
@@ -860,6 +1094,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': 'Comece a contribuir para ver sua atividade aqui!',
       'recent.activity.points': 'ponto',
       'recent.activity.points.plural': 'pontos',
+      
+      // Dashboard Stats
+      'from.last.week': 'da semana passada',
+      'this.week': 'esta semana',
+      'up.positions': 'Subiu',
+      'positions': 'posições',
+      'points.this.week': 'pontos esta semana',
+      
+      // Charts
+      'your.contribution.trend': 'Sua Tendência de Contribuições',
+      'contribution.types': 'Tipos de Contribuição',
+      'your.points': 'Seus Pontos',
+      'community.average': 'Média da Comunidade',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Cole a URL da sua contribuição (post do Twitter, commit do GitHub, etc.)',
+      'description.optional': 'Descrição (Opcional)',
+      'brief.description': 'Breve descrição da sua contribuição...',
+      'validation.rules': 'Regras de Validação',
+      'validation.rule.1': 'URLs devem ser públicas e acessíveis',
+      'validation.rule.2': 'Posts do Twitter devem mencionar @QubicOfficial ou #Qubic',
+      'validation.rule.3': 'Commits do GitHub devem estar em repositórios relacionados ao Qubic',
+      'validation.rule.4': 'Submissões duplicadas serão rejeitadas',
+      'validation.rule.5': 'Cada tipo de contribuição tem um período de espera',
+      
+      // Analytics
+      'your.performance': 'Seu Desempenho',
+      'weekly.average': 'Média Semanal',
+      'best.week': 'Melhor Semana',
+      'consistency.score': 'Pontuação de Consistência',
+      'total.streak': 'Sequência Total',
+      'monthly.goal': 'Meta Mensal',
+      'target': 'Meta',
+      'points.to.go': 'pontos para alcançar',
+      'days.remaining': 'dias restantes',
+      'detailed.analytics': 'Análises Detalhadas',
+      'points.unit': 'pontos',
+      'days.unit': 'dias',
     },
     tr: {
       'ambassador.platform': 'Büyükelçi Platformu',
@@ -971,6 +1244,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': 'Aktivitelerinizi burada görmek için katkıda bulunmaya başlayın!',
       'recent.activity.points': 'puan',
       'recent.activity.points.plural': 'puan',
+      
+      // Dashboard Stats
+      'from.last.week': 'geçen haftadan',
+      'this.week': 'bu hafta',
+      'up.positions': 'Yukarı',
+      'positions': 'pozisyon',
+      'points.this.week': 'puan bu hafta',
+      
+      // Charts
+      'your.contribution.trend': 'Katkı Trendiniz',
+      'contribution.types': 'Katkı Türleri',
+      'your.points': 'Puanlarınız',
+      'community.average': 'Topluluk Ortalaması',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': 'Katkınızın URL\'sini yapıştırın (Twitter gönderisi, GitHub commit\'i, vb.)',
+      'description.optional': 'Açıklama (İsteğe Bağlı)',
+      'brief.description': 'Katkınızın kısa açıklaması...',
+      'validation.rules': 'Doğrulama Kuralları',
+      'validation.rule.1': 'URL\'ler halka açık ve erişilebilir olmalıdır',
+      'validation.rule.2': 'Twitter gönderileri @QubicOfficial veya #Qubic\'ten bahsetmelidir',
+      'validation.rule.3': 'GitHub commit\'leri Qubic ile ilgili depolarda olmalıdır',
+      'validation.rule.4': 'Yinelenen gönderiler reddedilecektir',
+      'validation.rule.5': 'Her katkı türünün bir bekleme süresi vardır',
+      
+      // Analytics
+      'your.performance': 'Performansınız',
+      'weekly.average': 'Haftalık Ortalama',
+      'best.week': 'En İyi Hafta',
+      'consistency.score': 'Tutarlılık Puanı',
+      'total.streak': 'Toplam Seri',
+      'monthly.goal': 'Aylık Hedef',
+      'target': 'Hedef',
+      'points.to.go': 'ulaşılacak puan',
+      'days.remaining': 'kalan gün',
+      'detailed.analytics': 'Detaylı Analizler',
+      'points.unit': 'puan',
+      'days.unit': 'gün',
     },
     zh: {
       'ambassador.platform': '大使平台',
@@ -1082,6 +1394,45 @@ function getTranslations(lang: Language) {
       'recent.activity.start.contributing': '开始贡献以在此处查看您的活动！',
       'recent.activity.points': '积分',
       'recent.activity.points.plural': '积分',
+      
+      // Dashboard Stats
+      'from.last.week': '从上周开始',
+      'this.week': '本周',
+      'up.positions': '上升',
+      'positions': '位置',
+      'points.this.week': '本周积分',
+      
+      // Charts
+      'your.contribution.trend': '您的贡献趋势',
+      'contribution.types': '贡献类型',
+      'your.points': '您的积分',
+      'community.average': '社区平均',
+      
+      // ContributionForm
+      'url': 'URL',
+      'url.paste.description': '粘贴您贡献的URL（Twitter帖子、GitHub提交等）',
+      'description.optional': '描述（可选）',
+      'brief.description': '您贡献的简要描述...',
+      'validation.rules': '验证规则',
+      'validation.rule.1': 'URL必须是公开和可访问的',
+      'validation.rule.2': 'Twitter帖子必须提及@QubicOfficial或#Qubic',
+      'validation.rule.3': 'GitHub提交必须在与Qubic相关的存储库中',
+      'validation.rule.4': '重复提交将被拒绝',
+      'validation.rule.5': '每种贡献类型都有冷却期',
+      
+      // Analytics
+      'your.performance': '您的表现',
+      'weekly.average': '每周平均',
+      'best.week': '最佳周',
+      'consistency.score': '一致性得分',
+      'total.streak': '总连胜',
+      'monthly.goal': '月度目标',
+      'target': '目标',
+      'points.to.go': '剩余积分',
+      'days.remaining': '剩余天数',
+      'detailed.analytics': '详细分析',
+      'points.unit': '积分',
+      'days.unit': '天',
     },
   };
 

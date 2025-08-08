@@ -75,7 +75,7 @@ export default function DashboardStats() {
             </div>
             <div className="mt-3 md:mt-4 text-xs md:text-sm text-green-400">
               <TrendingUp className="inline h-3 w-3 md:h-4 md:w-4 mr-1" />
-              +{stats?.weeklyGrowth || 0}% from last week
+              +{stats?.weeklyGrowth || 0}% {t('from.last.week')}
             </div>
           </CardContent>
         </Card>
@@ -106,7 +106,7 @@ export default function DashboardStats() {
             </div>
             <div className="mt-3 md:mt-4 text-xs md:text-sm text-green-400">
               <TrendingUp className="inline h-3 w-3 md:h-4 md:w-4 mr-1" />
-              +3 this week
+              +3 {t('this.week')}
             </div>
           </CardContent>
         </Card>
@@ -137,7 +137,7 @@ export default function DashboardStats() {
             </div>
             <div className="mt-3 md:mt-4 text-xs md:text-sm text-green-400">
               <TrendingUp className="inline h-3 w-3 md:h-4 md:w-4 mr-1" />
-              Up 2 positions
+              {t('up.positions')} 2 {t('positions')}
             </div>
           </CardContent>
         </Card>
@@ -168,7 +168,7 @@ export default function DashboardStats() {
             </div>
             <div className="mt-3 md:mt-4 text-xs md:text-sm text-green-400">
               <TrendingUp className="inline h-3 w-3 md:h-4 md:w-4 mr-1" />
-              +5 points this week
+              +5 {t('points.this.week')}
             </div>
           </CardContent>
         </Card>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 
 declare global {
@@ -15,6 +16,7 @@ interface ChartsProps {
 
 export default function Charts({ showDetailed = false }: ChartsProps) {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const trendChartRef = useRef<HTMLCanvasElement>(null);
   const typesChartRef = useRef<HTMLCanvasElement>(null);
   const detailedChartRef = useRef<HTMLCanvasElement>(null);
@@ -43,7 +45,7 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
         data: {
           labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
           datasets: [{
-            label: 'Your Points',
+            label: t('your.points'),
             data: [5, 8, 12, 15, 23, 28],
             borderColor: '#00D4FF',
             backgroundColor: 'rgba(0, 212, 255, 0.1)',
@@ -135,13 +137,13 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
         data: {
           labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
           datasets: [{
-            label: 'Your Points',
+            label: t('your.points'),
             data: [5, 8, 12, 15, 10, 18],
             backgroundColor: 'rgba(0, 212, 255, 0.8)',
             borderColor: '#00D4FF',
             borderWidth: 1
           }, {
-            label: 'Community Average',
+            label: t('community.average'),
             data: [6, 7, 9, 11, 13, 14],
             backgroundColor: 'rgba(123, 44, 191, 0.8)',
             borderColor: '#7B2CBF',
@@ -207,8 +209,8 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
           <CardTitle className={cn(
             "text-lg md:text-xl  font-heading transition-colors duration-200",
             theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
-          )}>
-            Your Contribution Trend
+                    )}>  
+            {t('your.contribution.trend')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -229,8 +231,8 @@ export default function Charts({ showDetailed = false }: ChartsProps) {
           <CardTitle className={cn(
             "text-lg md:text-xl  font-heading transition-colors duration-200",
             theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
-          )}>
-            Contribution Types
+                    )}>  
+            {t('contribution.types')}
           </CardTitle>
         </CardHeader>
         <CardContent>

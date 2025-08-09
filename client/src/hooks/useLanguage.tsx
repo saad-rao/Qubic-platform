@@ -124,8 +124,6 @@ function getTranslations(lang: Language) {
       'contributions': 'Contributions',
       
       // Analytics
-      'analytics.title': 'Your Analytics',
-      'analytics.description': 'Track your performance and growth',
       'analytics.overview': 'Overview',
       'analytics.contributions.chart': 'Contributions Over Time',
       'analytics.points.chart': 'Points Earned',
@@ -215,7 +213,7 @@ function getTranslations(lang: Language) {
       'brief.description': 'Brief description of your contribution...',
       'validation.rules': 'Validation Rules',
       'validation.rule.1': 'URLs must be public and accessible',
-      'validation.rule.2': 'Twitter posts must mention @QubicOfficial or #Qubic',
+      'validation.rule.2': 'Twitter posts must mention @QubicOfficial or $Qubic',
       'validation.rule.3': 'GitHub commits must be in Qubic-related repositories',
       'validation.rule.4': 'Duplicate submissions will be rejected',
       'validation.rule.5': 'Each contribution type has a cooldown period',

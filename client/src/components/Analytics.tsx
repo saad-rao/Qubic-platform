@@ -25,23 +25,8 @@ export default function Analytics() {
 
   return (
     <div className="space-y-4 md:space-y-6">
-      {/* Section Heading */}
-      <div className="text-center mb-6 md:mb-8">
-        <h2 className={cn(
-          "text-2xl md:text-3xl font-bold font-heading transition-colors duration-200",
-          theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
-        )}>
-          {t('analytics.title')}
-        </h2>
-        <p className={cn(
-          "text-base md:text-lg mt-2 transition-colors duration-200",
-          theme === "light" ? "text-[#302A36]/80" : "text-[#FEF8E8]/80"
-        )}>
-          {t('analytics.description')}
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+     
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {/* Performance Metrics */}
         <Card className={cn(
           "backdrop-blur-md transition-all duration-200",

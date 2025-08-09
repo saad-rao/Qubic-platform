@@ -50,17 +50,17 @@ export default function DashboardStats() {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <Card className={cn(
-          "backdrop-blur-md gradient-bg transition-all duration-200 transform hover:scale-[1.02] hover:shadow-lg",
+          " transition-all duration-200 transform hover:scale-[1.02] hover:shadow-lg",
           theme === "light" 
             ? "bg-[#FEF8E8] border-[#00D4FF]/20" 
-            : "bg-[#302A36] border-[#00D4FF]/20"
+            : "bg-gray-900/50 border-[#7B2CBF]/20"
         )}>
           <CardContent className="p-4 md:p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className={cn(
                   "text-xs md:text-sm transition-colors duration-200",
-                  theme === "light" ? "text-[#FEF8E8]" : "text-[#FEF8E8]"
+                  theme === "light" ? "text-[#302A36]" : "text-[#FEF8E8]"
                 )}>
                   
                   {t('total.contributions')}

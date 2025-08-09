@@ -264,11 +264,22 @@ export default function ContributionForm() {
       )}>
         <CardContent className="p-3 md:p-4">
           <h4 className={cn(
-            "font-semibold mb-2 flex items-center font-heading transition-colors duration-200 text-sm md:text-base",
-            theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+            "mb-2 flex items-center font-heading transition-colors duration-200 text-sm md:text-base",
+            theme === "light" ? "font-bold" : ""
           )}>
-            <Info className="h-4 w-4 mr-1 mb-1" />
-            {t('validation.rules')}
+            <Info
+              className={cn(
+                "h-4 w-4 mr-1 mb-1",
+                theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+              )}
+            />
+            <span
+              className={cn(
+                theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+              )}
+            >
+              {t('validation.rules')}
+            </span>
           </h4>
           <ul className={cn(
             "text-xs md:text-sm space-y-1 transition-colors duration-200",

@@ -1,8 +1,9 @@
 import React from 'react';
-import { X, Globe, Sun, Moon } from 'lucide-react';
+import { X, Globe, Sun, Moon, BarChart3, PlusCircle, Trophy, TrendingUp } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
 import { useLanguage, languages, Language } from '@/hooks/useLanguage';
 import { cn } from '@/lib/utils';
+import { SectionContext } from './DashboardLayout';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -12,10 +13,23 @@ interface MobileMenuProps {
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
+  const { activeSection, setActiveSection } = React.useContext(SectionContext);
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
   };
+
+  const handleSectionChange = (section: 'dashboard' | 'contributions' | 'leaderboard' | 'analytics') => {
+    setActiveSection(section);
+    onClose();
+  };
+
+  const navItems = [
+    { id: 'dashboard' as const, label: t('dashboard'), icon: BarChart3 },
+    { id: 'contributions' as const, label: t('submit.contribution'), icon: PlusCircle },
+    { id: 'leaderboard' as const, label: t('leaderboard'), icon: Trophy },
+    { id: 'analytics' as const, label: t('your.analytics'), icon: TrendingUp },
+  ];
 
   if (!isOpen) return null;
 
@@ -59,7 +73,61 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
 
         {/* Menu Content */}
-        <div className="p-4 space-y-6">
+        <div className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-80px)]">
+          {/* Dashboard Navigation */}
+          <div className="space-y-3">
+            <h3 className={cn(
+              "text-sm font-semibold",
+              theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+            )}>
+              Navigation
+            </h3>
+            <div className="space-y-2">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeSection === item.id;
+                
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleSectionChange(item.id)}
+                    className={cn(
+                      "w-full flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 text-left transform hover:scale-[1.02] font-heading",
+                      isActive
+                        ? theme === "light"
+                          ? "bg-[#00D4FF]/20 text-[#302A36] border border-[#00D4FF]/30 shadow-md"
+                          : "bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/30"
+                        : theme === "light"
+                          ? "hover:bg-[#302A36]/10 text-[#302A36] hover:shadow-sm"
+                          : "hover:bg-gray-800/50 text-white"
+                    )}
+                  >
+                    <Icon className={cn(
+                      "h-5 w-5 transition-colors duration-200",
+                      isActive
+                        ? theme === "light" ? "text-[#302A36]" : "text-[#00D4FF]"
+                        : theme === "light" ? "text-[#302A36]" : "text-[#D0FF5F]"
+                    )} />
+                    <span className={cn(
+                      "text-base font-semi-bold transition-colors duration-200",
+                      isActive
+                        ? theme === "light" ? "text-[#302A36]" : "text-[#00D4FF]"
+                        : theme === "light" ? "text-[#302A36]" : "text-[#FFFFFF]"
+                    )}>
+                      {item.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className={cn(
+            "border-t",
+            theme === "light" ? "border-[#302A36]/20" : "border-gray-700"
+          )} />
+
           {/* Language Selection */}
           <div className="space-y-3">
             <h3 className={cn(

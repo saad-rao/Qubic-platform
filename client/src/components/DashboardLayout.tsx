@@ -19,19 +19,8 @@ export const SectionContext = createContext<{
 });
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<Section>('dashboard');
   const { theme } = useTheme();
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setSidebarOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -58,29 +47,24 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             : "bg-[#302A36] text-white"
         )}
       >
-        <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+        <Header onMenuClick={() => {}} />
          
         <div className="flex pt-16 min-h-screen">
-          <Sidebar
-            activeSection={activeSection}
-            onSectionChange={setActiveSection}
-            isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
-          />
+          {/* Desktop Sidebar - Hidden on mobile */}
+          <div className="hidden md:block">
+            <Sidebar
+              activeSection={activeSection}
+              onSectionChange={setActiveSection}
+              isOpen={true}
+              onClose={() => {}}
+            />
+          </div>
           <main className="flex-1 p-3 md:p-6 space-y-4 md:space-y-6 overflow-x-hidden">
             <div className="max-w-full">
               {renderContent()}
             </div>
           </main>
         </div>
-        
-        {/* Mobile Sidebar Overlay */}
-        {sidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black/50 z-20 md:hidden"
-            onClick={() => setSidebarOpen(false)}
-          />
-        )}
       </div>
     </SectionContext.Provider>
   );

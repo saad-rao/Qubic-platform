@@ -117,14 +117,4 @@ This is a full-stack web application built for tracking and analyzing Qubic comm
 - **Production**: `npm run build && npm run start` - builds and runs optimized version
 - **Database**: Requires `DATABASE_URL` environment variable
 
-### Replit Configuration
-- **Modules**: nodejs-20, web, postgresql-16
-- **Ports**: Application runs on port 5000, externally accessible on port 80
-- **Deployment**: Autoscale deployment target with build and run commands
 
-## Changelog
-- June 24, 2025. Initial setup
-
-## User Preferences
-
-Preferred communication style: Simple, everyday language.

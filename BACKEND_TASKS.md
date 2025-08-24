@@ -6,17 +6,17 @@ This document outlines all the backend tasks required to support the Qubic Platf
 ## 🏗️ **Project Setup & Infrastructure**
 
 ### 1. **Initial Project Setup**
-- [ ] Initialize Node.js/Express project with TypeScript
-- [ ] Set up project structure (controllers, routes, models, middlewares, utils, types)
-- [ ] Configure environment variables (.env)
-- [ ] Set up database connection (PostgreSQL with Drizzle ORM)
+- [x ] Initialize Node.js/Express project with TypeScript
+- [ x] Set up project structure (controllers, routes, models, middlewares, utils, types)
+- [ x] Configure environment variables (.env)
+- [ x] Set up database connection (PostgreSQL with Drizzle ORM) /Mongodb with mongoose
 - [ ] Configure CORS for frontend communication
 - [ ] Set up logging middleware
 - [ ] Configure error handling middleware
 - [ ] Set up development and production scripts
 
 ### 2. **Database Schema Design**
-- [ ] Create Users table schema
+- [X] Create Users table schema
   - `id` (primary key)
   - `email` (unique)
   - `password_hash`
@@ -33,7 +33,7 @@ This document outlines all the backend tasks required to support the Qubic Platf
   - `reset_password_token`
   - `reset_password_expires`
 
-- [ ] Create Contributions table schema
+- [X] Create Contributions table schema
   - `id` (primary key)
   - `user_id` (foreign key to users)
   - `type` (twitter/github/discord/medium/youtube)
@@ -46,7 +46,7 @@ This document outlines all the backend tasks required to support the Qubic Platf
   - `created_at`
   - `updated_at`
 
-- [ ] Create Sessions table schema (for session management)
+- [X ] Create Sessions table schema (for session management)
   - `id` (primary key)
   - `user_id` (foreign key to users)
   - `session_token`
@@ -54,22 +54,23 @@ This document outlines all the backend tasks required to support the Qubic Platf
   - `created_at`
 
 - [ ] Set up database migrations with Drizzle Kit
+- [X] Seeding Service with mongoDb for Default test data in Dev
 
 ## 🔐 **Authentication System**
 
 ### 3. **User Registration & Login**
-- [ ] Implement user registration endpoint (`POST /api/auth/register`)
-  - Email validation
-  - Password hashing (bcrypt)
-  - Username validation (optional)
-  - Email verification token generation
-  - Send verification email
+- [X] Implement user registration endpoint (`POST /api/auth/register`)
+  - Email validation done
+  - Password hashing (bcrypt) done
+  - Username validation (optional) not required as email is username
+  - Email verification token generation pending
+  - Send verification email pending
 
-- [ ] Implement user login endpoint (`POST /api/auth/login`)
+- [X] Implement user login endpoint (`POST /api/auth/login`)
   - Email/password validation
-  - JWT token generation
-  - Session creation
-  - Return user data (excluding password)
+  - JWT token generation (not required as we using session token now)
+  - Session creation done
+  - Return user data (excluding password) done
 
 - [ ] Implement email verification endpoint (`POST /api/auth/verify-email`)
   - Token validation
